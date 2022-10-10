@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            font-size: large;
+            padding: 1em;
+        }
+
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1> Home Page Example </h1>
+
+        <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+        <table>
+            <tr>
+                <th>UN</th>
+                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                <th>SUBSIDIARY CLASS</th>
+                <th>PACKING GROUP</th>
+                <th>SPECIAL PROVISIONS</th>
+                <th>PACKING PARAGRAPH</th>
+                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                <th>CAUTION</th>
+                <th>WARNING</th>
+            </tr>
+            <tr>
+                <th>3480</th>
+                <th>LITHIUM ION BATTERIES</th>
+                <th>9 Miscellaneous</th>
+                <th>N/A</th>
+                <th>N/A</th>
+                <th>P5, 388</th>
+                <th>A13.7</th>
+                <th>CAUTION</th>
+                <th>WARNING</th>
+            </tr>
+            <tr>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+
+</html>
