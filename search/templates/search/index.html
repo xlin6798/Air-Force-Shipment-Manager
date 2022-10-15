@@ -54,37 +54,11 @@
     <div class="container">
         <h1> Home Page Example </h1>
 
-        <form class="example" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search">
+        <form class="example" method=POST action="{% url 'detail' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter a UN code" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-
-        <table>
-            <tr>
-                <th>UN</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>SUBSIDIARY CLASS</th>
-                <th>PACKING GROUP</th>
-                <th>SPECIAL PROVISIONS</th>
-                <th>PACKING PARAGRAPH</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>CAUTION</th>
-                <th>WARNING</th>
-            </tr>
-            <tr>
-                <th>3480</th>
-                <th>LITHIUM ION BATTERIES</th>
-                <th>9 Miscellaneous</th>
-                <th>N/A</th>
-                <th>N/A</th>
-                <th>P5, 388</th>
-                <th>A13.7</th>
-                <th>CAUTION</th>
-                <th>WARNING</th>
-            </tr>
-            <tr>
-            </tr>
-        </table>
     </div>
 
 

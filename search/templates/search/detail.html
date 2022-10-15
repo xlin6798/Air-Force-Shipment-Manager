@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            font-size: large;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        {% if search == "3480" %}
+            <h1> You searched for {{search}} </h1>
+
+            <table>
+                <tr>
+                    <th>UN</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>SUBSIDIARY CLASS</th>
+                    <th>PACKING GROUP</th>
+                    <th>SPECIAL PROVISIONS</th>
+                    <th>PACKING PARAGRAPH</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>CAUTION</th>
+                    <th>WARNING</th>
+                </tr>
+                <tr>
+                    <th>3480</th>
+                    <th>LITHIUM ION BATTERIES</th>
+                    <th>9 Miscellaneous</th>
+                    <th>N/A</th>
+                    <th>N/A</th>
+                    <th>P5, 388</th>
+                    <th>A13.7</th>
+                    <th>CAUTION</th>
+                    <th>WARNING</th>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+            
+        {% else %}
+            <h1> {{search}} is not a valid UN code </h1>
+
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
