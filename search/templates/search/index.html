@@ -62,25 +62,28 @@
         <table>
             <tr>
                 <th>UN</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>SUBSIDIARY CLASS</th>
-                <th>PACKING GROUP</th>
-                <th>SPECIAL PROVISIONS</th>
-                <th>PACKING PARAGRAPH</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>CAUTION</th>
-                <th>WARNING</th>
+                <th>PSN</th>
+                <th>Hazardous Class</th>
+                <th>Sub Class</th>
+                <th>PG</th>
+                <th>SP</th>
+                <th>Pack Paragraph</th>
             </tr>
+            {% if product_list %}
+            {% for product in product_list %}
             <tr>
-                <th>3480</th>
-                <th>LITHIUM ION BATTERIES</th>
-                <th>9 Miscellaneous</th>
-                <th>N/A</th>
-                <th>N/A</th>
-                <th>P5, 388</th>
-                <th>A13.7</th>
-                <th>CAUTION</th>
-                <th>WARNING</th>
+                <th> {{ product.product_un }} </th>
+                <th> {{ product.product_psn }} </th>
+                <th> {{ product.product_haz_class }} </th>
+                <th> {{ product.product_sub_class }} </th>
+                <th> {{ product.product_pg }} </th>
+                <th> {{ product.product_sp }} </th>
+                <th> {{ product.product_paragraph }} </th>
+            </tr>
+            {% endfor%}
+            {% else %}
+            <ul> No product available </ul>
+            {% endif %}
             </tr>
             <tr>
             </tr>
