@@ -54,8 +54,9 @@
     <div class="container">
         <h1> Home Page Example </h1>
 
-        <form class="example" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search">
+        <form class="example" method=POST action="{% url 'detail' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter a UN code" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
 

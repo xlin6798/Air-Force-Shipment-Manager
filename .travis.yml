@@ -1,0 +1,16 @@
+language: python
+
+python:
+- "3.9"
+
+env:
+- DJANGO=4.1.2
+
+install:
+- pip install -r requirements.txt
+- pip install black
+- python -m pip install flake8 
+- pip install coverage
+
+script:
+- export DJANGO_SECRETKEY=secret
