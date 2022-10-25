@@ -15,7 +15,7 @@ install:
 
 script:
 - export DJANGO_SECRETKEY=secret
-- coverage run manage.py test
+- coverage run manage.py test search
 
 after_success:
 - coveralls
