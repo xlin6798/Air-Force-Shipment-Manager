@@ -8,7 +8,8 @@ def index(request):
 
 def detail(request):
     search = request.POST['search']
-    return render(request, 'search/detail.html', {'search':search})
+    product_list = Product.objects.filter(product_un__icontains=search)
+    return render(request, 'search/detail.html', {'product_list':product_list})
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')
