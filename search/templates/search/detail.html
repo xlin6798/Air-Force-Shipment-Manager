@@ -65,10 +65,9 @@
     </div>
     
     <div class="container">
-        {% if search == "3480" %}
-            <h1> You searched for {{search}} </h1>
 
             <table>
+                {% if product_list %}
                 <tr>
                     <th>UN</th>
                     <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
@@ -80,115 +79,23 @@
                     <th>CAUTION</th>
                     <th>WARNING</th>
                 </tr>
+                {% for product in product_list %}
                 <tr>
-                    <th>3480</th>
-                    <th>LITHIUM ION BATTERIES</th>
-                    <th>9 Miscellaneous</th>
-                    <th>N/A</th>
-                    <th>N/A</th>
-                    <th>P5, 388</th>
-                    <th>A13.7</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
+                    <th> {{ product.product_un }} </th>
+                    <th> {{ product.product_psn }} </th>
+                    <th> {{ product.product_haz_class }} </th>
+                    <th> {{ product.product_sub_class }} </th>
+                    <th> {{ product.product_pg }} </th>
+                    <th> {{ product.product_sp }} </th>
+                    <th> {{ product.product_paragraph }} </th>
                 </tr>
-                <tr>
-                </tr>
-            </table>
-        
-        {% elif search == "1869" %}
-            <h1> You searched for {{search}} </h1>
-
-            <table>
-                <tr>
-                    <th>UN</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>SUBSIDIARY CLASS</th>
-                    <th>PACKING GROUP</th>
-                    <th>SPECIAL PROVISIONS</th>
-                    <th>PACKING PARAGRAPH</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                <tr>
-                    <th>1869</th>
-                    <th>MAGNESIUM or MAGNESIUM ALLOYS</th>
-                    <th>4.1 Miscellaneous</th>
-                    <th>N/A</th>
-                    <th>III</th>
-                    <th>P5, A1</th>
-                    <th>A8.3</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
+                {% endfor%}
+                {% else %}
+                <h1> No Product available for this UN code </h1>
+                {% endif %}
                 <tr>
                 </tr>
             </table>
-
-        {% elif search == "2004" %}
-            <h1> You searched for {{search}} </h1>
-
-            <table>
-                <tr>
-                    <th>UN</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>SUBSIDIARY CLASS</th>
-                    <th>PACKING GROUP</th>
-                    <th>SPECIAL PROVISIONS</th>
-                    <th>PACKING PARAGRAPH</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                <tr>
-                    <th>2004</th>
-                    <th>MAGNESIUM DIAMIDE</th>
-                    <th>4.2 Miscellaneous</th>
-                    <th>N/A</th>
-                    <th>II</th>
-                    <th>P5, A8, A19, A20</th>
-                    <th>A8.3</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                <tr>
-                </tr>
-            </table>
-        
-        {% elif search == "0448" %}
-            <h1> You searched for {{search}} </h1>
-
-            <table>
-                <tr>
-                    <th>UN</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>SUBSIDIARY CLASS</th>
-                    <th>PACKING GROUP</th>
-                    <th>SPECIAL PROVISIONS</th>
-                    <th>PACKING PARAGRAPH</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                <tr>
-                    <th>0448</th>
-                    <th>5-MERCAPTOTETRAZOL-1-ACETIC ACID</th>
-                    <th>1.4C Miscellaneous</th>
-                    <th>N/A</th>
-                    <th>N/A</th>
-                    <th>P5</th>
-                    <th>A5.9</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                <tr>
-                </tr>
-            </table>
-
-        {% else %}
-            <h1> {{search}} is not a valid UN code </h1>
-
-        {% endif %}
     </div>
 
 </body>
