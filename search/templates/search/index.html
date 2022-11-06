@@ -106,7 +106,7 @@
             </tr>
             {% for product in product_list.all %}
             <tr>
-                <th> {{ product.product_un }} </th>
+                <th> <a href="/{{ product.product_un }}"> {{ product.product_un }} </a> </th>
                 <th> {{ product.product_psn }} </th>
                 <th> {{ product.product_haz_class }} </th>
                 <th> {{ product.product_sub_class }} </th>

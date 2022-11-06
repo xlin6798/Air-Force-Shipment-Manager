@@ -11,5 +11,9 @@ def detail(request):
     product_list = Product.objects.filter(product_un__icontains=search)
     return render(request, 'search/detail.html', {'product_list':product_list})
 
+def details(request, un_code):
+    product_list = Product.objects.filter(product_un__icontains=un_code)
+    return render(request, 'search/detail.html', {'product_list':product_list})
+
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')
