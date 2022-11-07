@@ -6,12 +6,7 @@ def index(request):
     context = {'product_list': product_list}
     return render(request, 'search/index.html', context)
 
-def detail(request):
-    search = request.POST['search']
-    product_list = Product.objects.filter(product_un__icontains=search)
-    return render(request, 'search/detail.html', {'product_list':product_list})
-
-def details(request, un_code):
+def detail(request, un_code):
     product_list = Product.objects.filter(product_un__icontains=un_code)
     return render(request, 'search/detail.html', {'product_list':product_list})
 
