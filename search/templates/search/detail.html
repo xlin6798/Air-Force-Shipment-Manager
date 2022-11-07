@@ -1,3 +1,7 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <html>
 
@@ -88,14 +92,14 @@
         .opensidebar {
             font-size: 20px;
             cursor: pointer;
-            background-color: #111;
-            color: white;
+            color: black;
             padding: 10px 15px;
             border: none;
         }
 
         .opensidebar:hover {
-            background-color: #444;
+            background-color: black;
+            color: ghostwhite;
         }
 
         #main {
@@ -119,45 +123,49 @@
 
     <div class="container">
 
-            <table>
-                {% if product_list %}
-                <tr>
-                    <th>UN</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>SUBSIDIARY CLASS</th>
-                    <th>PACKING GROUP</th>
-                    <th>SPECIAL PROVISIONS</th>
-                    <th>PACKING PARAGRAPH</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>CAUTION</th>
-                    <th>WARNING</th>
-                </tr>
-                {% for product in product_list %}
-                <tr>
-                    <th> {{ product.product_un }} </th>
-                    <th> {{ product.product_psn }} </th>
-                    <th> 
-                        <button class="opensidebar" onclick="openNav()"> {{ product.product_haz_class }} </button> 
-                    </th>
-                    <th> 
-                        <button class="opensidebar" onclick="openNav()"> {{ product.product_sub_class }} </button> 
-                    </th>
-                    <th> 
-                        <button class="opensidebar" onclick="openNav()"> {{ product.product_pg }} </button>
-                    </th>
-                    <th> 
-                        <button class="opensidebar" onclick="openNav()"> {{ product.product_sp }} </button>
-                    </th>
-                    <th> 
-                        <button class="opensidebar" onclick="openNav()"> {{ product.product_paragraph }} </button>
-                    </th>
-                </tr>
-                {% endfor%}
-                {% else %}
-                <h1> No Product available for this UN code </h1>
-                {% endif %}
-                <tr>
-                </tr>
+            <table class="table table-light table-striped">
+                <thead>
+                    {% if product_list %}
+                        <tr>
+                            <th>UN</th>
+                            <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                            <th>SUBSIDIARY CLASS</th>
+                            <th>PACKING GROUP</th>
+                            <th>SPECIAL PROVISIONS</th>
+                            <th>PACKING PARAGRAPH</th>
+                            <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                            <th>CAUTION</th>
+                            <th>WARNING</th>
+                        </tr>
+                </thead>
+                <tbody id="pnTable">
+                    {% for product in product_list %}
+                        <tr>
+                            <th> {{ product.product_un }} </th>
+                            <th> {{ product.product_psn }} </th>
+                            <th> 
+                                <button class="opensidebar" onclick="openNav()"> {{ product.product_haz_class }} </button> 
+                            </th>
+                            <th> 
+                                <button class="opensidebar" onclick="openNav()"> {{ product.product_sub_class }} </button> 
+                            </th>
+                            <th> 
+                                <button class="opensidebar" onclick="openNav()"> {{ product.product_pg }} </button>
+                            </th>
+                            <th> 
+                                <button class="opensidebar" onclick="openNav()"> {{ product.product_sp }} </button>
+                            </th>
+                            <th> 
+                                <button class="opensidebar" onclick="openNav()"> {{ product.product_paragraph }} </button>
+                            </th>
+                        </tr>
+                        {% endfor%}
+                        {% else %}
+                            <h1> No Product available for this UN code </h1>
+                        {% endif %}
+                        <tr>
+                        </tr>
+                </tbody>
             </table>
     </div>
 
