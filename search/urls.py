@@ -7,3 +7,4 @@ urlpatterns = [
     path('products/<str:un_code>/', views.detail, name='detail'),
     path('shipmentHistory', views.shipmentHistory, name='shipmentHistory'),
 ]
+

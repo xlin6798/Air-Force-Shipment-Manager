@@ -50,11 +50,14 @@
             background-color: ghostwhite;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #5F6972;
         }
 
-        th, td {
+        th,
+        td {
             text-align: center;
             border-style: dotted;
         }
@@ -69,7 +72,7 @@
             background-color: ghostwhite;
             overflow-x: hidden;
             padding-top: 60px;
-            transition: 0.5s; 
+            transition: 0.5s;
         }
 
         .sidebar a {
@@ -89,29 +92,33 @@
             margin-left: 50px;
         }
 
-        .opensidebar {
-            font-size: 20px;
-            cursor: pointer;
-            color: black;
-            padding: 10px 15px;
-            border: none;
-        }
-
-        .opensidebar:hover {
-            background-color: black;
-            color: ghostwhite;
-        }
-
         #main {
             transition: margin-left .5s;
             padding: 20px;
         }
 
         @media screen and (max-height: 450px) {
-            .sidebar {padding-top: 15px;}
-            .sidebar a {font-size: 18px;}
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
         }
-</style>
+    </style>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+    }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
 
 <body id="main">
     <div class="topnav">
@@ -123,68 +130,84 @@
 
     <div class="container">
 
-            <table class="table table-light table-striped">
-                <thead>
-                    {% if product_list %}
-                        <tr>
-                            <th>UN</th>
-                            <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                            <th>SUBSIDIARY CLASS</th>
-                            <th>PACKING GROUP</th>
-                            <th>SPECIAL PROVISIONS</th>
-                            <th>PACKING PARAGRAPH</th>
-                            <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                            <th>CAUTION</th>
-                            <th>WARNING</th>
-                        </tr>
-                </thead>
-                <tbody id="pnTable">
-                    {% for product in product_list %}
-                        <tr>
-                            <th> {{ product.product_un }} </th>
-                            <th> {{ product.product_psn }} </th>
-                            <th> 
-                                <button class="opensidebar" onclick="openNav()"> {{ product.product_haz_class }} </button> 
-                            </th>
-                            <th> 
-                                <button class="opensidebar" onclick="openNav()"> {{ product.product_sub_class }} </button> 
-                            </th>
-                            <th> 
-                                <button class="opensidebar" onclick="openNav()"> {{ product.product_pg }} </button>
-                            </th>
-                            <th> 
-                                <button class="opensidebar" onclick="openNav()"> {{ product.product_sp }} </button>
-                            </th>
-                            <th> 
-                                <button class="opensidebar" onclick="openNav()"> {{ product.product_paragraph }} </button>
-                            </th>
-                        </tr>
-                        {% endfor%}
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th>UN</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>SUBSIDIARY CLASS</th>
+                    <th>PACKING GROUP</th>
+                    <th>SPECIAL PROVISIONS</th>
+                    <th>PACKING PARAGRAPH</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>CAUTION</th>
+                    <th>WARNING</th>
+                </tr>
+            </thead>
+            <tbody id="pnTable">
+                {% for product in product_list %}
+                <tr>
+                    <td> {{ product.product_un }} </td>
+                    <td> {{ product.product_psn }} </td>
+                    <td>
+                        {% if product.haz_as_list %}
+                        {% for haz in product.haz_as_list %}
+                        <button class="btn btn-outline-primary" onclick="openNav()">
+                            {{ haz }}
+                        </button>
+                        {% endfor %}
                         {% else %}
-                            <h1> No Product available for this UN code </h1>
                         {% endif %}
-                        <tr>
-                        </tr>
-                </tbody>
-            </table>
+                    </td>
+                    <td>
+                        {% if product.sub_as_list %}
+                        {% for sub in product.sub_as_list %}
+                        <button class="btn btn-outline-primary" onclick="openNav()">
+                            {{ sub }}
+                        </button>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.pg_as_list %}
+                        {% for pg in product.pg_as_list %}
+                        <button class="btn btn-outline-primary" onclick="openNav()">
+                            {{ pg }}
+                        </button>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.sp_as_list %}
+                        {% for sp in product.sp_as_list %}
+                        <button class="btn btn-outline-primary" onclick="openNav()">
+                            {{ sp }}
+                        </button>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.paragraph_as_list %}
+                        {% for paragraph in product.paragraph_as_list %}
+                        <button class="btn btn-outline-primary" onclick="openNav()">
+                            {{ paragraph }}
+                        </button>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      </div>
-
-      <script>
-        function openNav() {
-          document.getElementById("mySidebar").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-        }
-        
-        function closeNav() {
-          document.getElementById("mySidebar").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-        }
-        </script>
-
+    </div>
 </body>
 
 </html>
