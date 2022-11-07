@@ -1,124 +1,16 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .container {
-            text-align: center;
-            font-size: large;
-            padding: 1em;
-        }
-
-        .topnav {
-            background-color: #5F6972;
-            overflow: hidden;
-        }
-
-        .topnav a {
-            float: right;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: #111;
-            color: white;
-        }
-
-        body {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/C17_aircraft_alt.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        table {
-            width: 100%;
-            background-color: ghostwhite;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #5F6972;
-        }
-
-        th,
-        td {
-            text-align: center;
-            border-style: dotted;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: ghostwhite;
-            overflow-x: hidden;
-            padding-top: 60px;
-            transition: 0.5s;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #5F6972;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 20px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidebar {
-                padding-top: 15px;
-            }
-
-            .sidebar a {
-                font-size: 18px;
-            }
-        }
-    </style>
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-    }
-
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'search/script.js' %}"></script>
 
 <body id="main">
     <div class="topnav">

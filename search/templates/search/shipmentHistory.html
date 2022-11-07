@@ -1,95 +1,50 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
-<style>
-        .container {
-            text-align: center;
-            font-size: large;
-            padding: 1em;
-        }
-
-        .topnav {
-            background-color: #5F6972;
-            overflow: hidden;
-        }
-
-        .topnav a {
-            float: right;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: #111;
-            color: white;
-        }
-
-        table {
-            width: 100%;
-            background-color: whitesmoke;
-        }
-
-        table, th, td {
-            border: 1px solid #5F6972;
-        }
-
-        th, td {
-            text-align: center;
-            border-style: dotted;
-        }
-
-        tr:hover {
-            background-color: #5F6972;
-            color: white;}
-
-        body {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/C17_aircraft_alt.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-</style>
+<head>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'search/script.js' %}"></script>
+</head>
 
 <body>
-
     <div class="topnav">
-        <a href="https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf">Source</a>
+        <a
+            href="https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf">Source</a>
         <a href="{% url 'index' %}">Home</a>
     </div>
 
     <div class="container">
         <h1> SHIPMENT HISTORY </h1>
+
+
+        <form>
+            {% csrf_token %}
+            <input type="text" placeholder="Sort by" name="search">
+        </form>
+
+        <table class="table table-light table-striped">
+            <tr>
+                <th>DATE</th>
+                <th>TCN NUMBER</th>
+                <th>SHIP FROM</th>
+                <th>SHIP TO</th>
+            </tr>
+            <tr>
+                <th>May 4, 2022</th>
+                <th>M2683183358932XXX</th>
+                <th>LAX</th>
+                <th>LAG</th>
+            </tr>
+            <tr>
+            </tr>
+        </table>
     </div>
-
-    <form>
-        {% csrf_token %}
-        <input type="text" placeholder="Sort by" name="search">
-    </form>
-
-    <table>
-        <tr>
-            <th>DATE</th>
-            <th>TCN NUMBER</th>
-            <th>SHIP FROM</th>
-            <th>SHIP TO</th>
-        </tr>
-        <tr>
-            <th>May 4, 2022</th>
-            <th>M2683183358932XXX</th>
-            <th>LAX</th>
-            <th>LAG</th>
-        </tr>
-        <tr>
-        </tr>
-    </table>
 
 </body>
 

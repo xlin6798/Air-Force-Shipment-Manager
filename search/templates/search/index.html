@@ -1,38 +1,21 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-
 {% load static %}
-
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'search/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        
-    </style>
-
-    <script>
-        $(document).ready(function () {
-            $("#filterInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#pnTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+    <script src="{% static 'search/script.js' %}"></script>
+    
 </head>
 
 <body>
-
     <div class="topnav">
-        <a
-            href="https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf">Source</a>
+        <a href="https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf">Source</a>
         <a href="{% url 'shipmentHistory' %}">Shipment History</a>
     </div>
 
