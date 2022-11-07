@@ -40,10 +40,76 @@
             background-attachment: fixed;
             background-size: cover;
         }
-    </style>
-</head>
 
-<body>
+        table {
+            width: 100%;
+            background-color: ghostwhite;
+        }
+
+        table, th, td {
+            border: 1px solid #5F6972;
+        }
+
+        th, td {
+            text-align: center;
+            border-style: dotted;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: ghostwhite;
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s; 
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #5F6972;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .opensidebar {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .opensidebar:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {padding-top: 15px;}
+            .sidebar a {font-size: 18px;}
+        }
+</style>
+
+<body id="main">
     <div class="topnav">
         <a
             href="https://static.e-publishing.af.mil/production/1/af_a4/publication/afman24-604/afman24-604.pdf">Source</a>
@@ -53,37 +119,63 @@
 
     <div class="container">
 
-        <table>
-            {% if product_list %}
-            <tr>
-                <th>UN</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>SUBSIDIARY CLASS</th>
-                <th>PACKING GROUP</th>
-                <th>SPECIAL PROVISIONS</th>
-                <th>PACKING PARAGRAPH</th>
-                <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                <th>CAUTION</th>
-                <th>WARNING</th>
-            </tr>
-            {% for product in product_list %}
-            <tr>
-                <th> {{ product.product_un }} </th>
-                <th> {{ product.product_psn }} </th>
-                <th> {{ product.product_haz_class }} </th>
-                <th> {{ product.product_sub_class }} </th>
-                <th> {{ product.product_pg }} </th>
-                <th> {{ product.product_sp }} </th>
-                <th> {{ product.product_paragraph }} </th>
-            </tr>
-            {% endfor%}
-            {% else %}
-            <h1> No Product available for this UN code </h1>
-            {% endif %}
-            <tr>
-            </tr>
-        </table>
+            <table>
+                {% if product_list %}
+                <tr>
+                    <th>UN</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>SUBSIDIARY CLASS</th>
+                    <th>PACKING GROUP</th>
+                    <th>SPECIAL PROVISIONS</th>
+                    <th>PACKING PARAGRAPH</th>
+                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>CAUTION</th>
+                    <th>WARNING</th>
+                </tr>
+                {% for product in product_list %}
+                <tr>
+                    <th> {{ product.product_un }} </th>
+                    <th> {{ product.product_psn }} </th>
+                    <th> 
+                        <button class="opensidebar" onclick="openNav()"> {{ product.product_haz_class }} </button> 
+                    </th>
+                    <th> 
+                        <button class="opensidebar" onclick="openNav()"> {{ product.product_sub_class }} </button> 
+                    </th>
+                    <th> 
+                        <button class="opensidebar" onclick="openNav()"> {{ product.product_pg }} </button>
+                    </th>
+                    <th> 
+                        <button class="opensidebar" onclick="openNav()"> {{ product.product_sp }} </button>
+                    </th>
+                    <th> 
+                        <button class="opensidebar" onclick="openNav()"> {{ product.product_paragraph }} </button>
+                    </th>
+                </tr>
+                {% endfor%}
+                {% else %}
+                <h1> No Product available for this UN code </h1>
+                {% endif %}
+                <tr>
+                </tr>
+            </table>
     </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      </div>
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
 
 </body>
 
