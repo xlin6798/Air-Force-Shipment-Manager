@@ -1,27 +1,3 @@
-.topnav {
-    background-color: #5F6972;
-    overflow: hidden;
-}
-
-.topnav a {
-    float: right;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav a.active {
-    background-color: #111;
-    color: white;
-}
-
 body {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/C17_aircraft_alt.jpg');
     background-repeat: no-repeat;
@@ -57,11 +33,6 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
 }
 
 @media screen and (max-height: 450px) {
