@@ -7,10 +7,10 @@ $(document).ready(function () {
     });
 });
 
-function openNav() {
-    document.getElementById("mySidebar").style.width = "400px";
+function openNav(eid) {
+    document.getElementById(eid).style.width = "400px";
 }
 
-function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
+function closeNav(eid) {
+    document.getElementById(eid).style.width = "0";
 }
