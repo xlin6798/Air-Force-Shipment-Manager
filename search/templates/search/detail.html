@@ -54,10 +54,18 @@
                     <td>
                         {% if product.haz_as_list %}
                         {% for haz in product.haz_as_list %}
-                        <button class="btn btn-outline-primary" onclick="openNav()">
+                        <button class="btn btn-outline-primary" onclick="openNav('sp{{ forloop.counter }}')">
                             {{ haz }}
                         </button>
                         {% endfor %}
+
+                        {% for desc in code_list %}
+                        <div id="sp{{ forloop.counter }}" class="sidebar">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sp{{ forloop.counter }}')">&times;</a>
+                            {{ desc }}
+                        </div>
+                        {% endfor %}
+
                         {% else %}
                         {% endif %}
                     </td>
@@ -108,7 +116,6 @@
     </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
 </body>
 
