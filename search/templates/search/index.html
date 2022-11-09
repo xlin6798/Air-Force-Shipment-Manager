@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'search/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'search/script.js' %}"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
@@ -31,8 +31,8 @@
         </div>
     </nav>
 
-    <div class="container mt-4 text-center">
-        <h1> Air Force Shipment Manager </h1>
+    <div class="container mt-4 table-responsive">
+        <h1 class="text-center"> Air Force Shipment Manager </h1>
 
         <form>
             <div class="row">
@@ -42,7 +42,7 @@
             </div>
         </form>
 
-        <table class="table table-light table-striped">
+        <table class="table table-light table-striped table-hover">
             <thead>
                 <tr>
                     <th>UN / ID NUMBER</th>
@@ -56,16 +56,15 @@
             </thead>
             <tbody id="pnTable">
                 {% for product in product_list %}
-                <tr>
-                    <td> <a class="text-decoration-none link-primary" href="/products/{{ product.product_un }}">
-                            {{ product.product_un }} </a> </td>
-                    <td> {{ product.product_psn }} </td>
-                    <td> {{ product.product_haz_class }} </td>
-                    <td> {{ product.product_sub_class }} </td>
-                    <td> {{ product.product_pg }} </td>
-                    <td> {{ product.product_sp }} </td>
-                    <td> {{ product.product_paragraph }} </td>
-                </tr>
+                    <tr class='clickable' onclick="window.location='/products/{{ product.product_un }}' ">
+                        <td> {{ product.product_un }} </td>
+                        <td> {{ product.product_psn }} </td>
+                        <td> {{ product.product_haz_class }} </td>
+                        <td> {{ product.product_sub_class }} </td>
+                        <td> {{ product.product_pg }} </td>
+                        <td> {{ product.product_sp }} </td>
+                        <td> {{ product.product_paragraph }} </td>
+                    </tr>
                 {% endfor%}
             </tbody>
         </table>
