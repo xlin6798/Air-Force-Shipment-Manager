@@ -118,14 +118,14 @@
         <div class="accordion accordion-flush" id="accordionExample">
             {% for haz in haz_list %}
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
+                <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#haz{{ forloop.counter }}" aria-expanded="true"
+                        data-bs-target="#haz{{ forloop.counter }}"
                         aria-controls="haz{{ forloop.counter }}">
                         {{ haz.haz_num }}
                     </button>
                 </h2>
-                <div id="haz{{ forloop.counter }}" class="bg-light accordion-collapse collapse show"
+                <div id="haz{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <strong>{{ haz.haz_name }}</strong>
@@ -136,14 +136,14 @@
 
             {% for sp in sp_list %}
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
+                <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#sp{{ forloop.counter }}" aria-expanded="true"
+                        data-bs-target="#sp{{ forloop.counter }}"
                         aria-controls="sp{{ forloop.counter }}">
                         {{ sp.sp_code }}
                     </button>
                 </h2>
-                <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse show"
+                <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <strong>{{ sp.sp_desc }}</strong>
