@@ -10,15 +10,15 @@ def index(request):
 def detail(request, un_code):
     product = Product.objects.filter(product_un__icontains=un_code)[0]
     hazcode = product.product_haz_class
+    haz_list = []
     if hazcode != "":
         haz_list = HazClass.objects.filter(haz_num__icontains=hazcode)
-    else:
-        haz_list = []
-    spcode = product.product_sp
-    if spcode != "":
-        sp_list = SpCode.objects.filter(sp_code__icontains=spcode)
-    else:
-        sp_list = []
+    spcodes = product.sp_as_list()
+    sp_list = []
+    if spcodes:
+        for spcode in spcodes:
+            code = SpCode.objects.filter(sp_code__icontains=spcode.strip())[0]
+            sp_list.append(code)
     
     return render(request, 'search/detail.html', {'product':product, 'haz_list':haz_list, 'sp_list':sp_list})
 
