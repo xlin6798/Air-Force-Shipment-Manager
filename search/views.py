@@ -1,3 +1,4 @@
+from queue import Empty
 from django.shortcuts import render
 from .models import Product, SpCode, HazClass
 
@@ -7,11 +8,19 @@ def index(request):
     return render(request, 'search/index.html', context)
 
 def detail(request, un_code):
-    product_list = Product.objects.filter(product_un__icontains=un_code)
-    code_list = []
-    for code in product_list[0].product_haz_class.split(','):
-        code_list.append(SpCode.objects.filter(sp_code__icontains=code))
-    return render(request, 'search/detail.html', {'product_list':product_list, 'code_list':code_list})
+    product = Product.objects.filter(product_un__icontains=un_code)[0]
+    hazcode = product.product_haz_class
+    if hazcode != "":
+        haz_list = HazClass.objects.filter(haz_num__icontains=hazcode)
+    else:
+        haz_list = []
+    spcode = product.product_sp
+    if spcode != "":
+        sp_list = SpCode.objects.filter(sp_code__icontains=spcode)
+    else:
+        sp_list = []
+    
+    return render(request, 'search/detail.html', {'product':product, 'haz_list':haz_list, 'sp_list':sp_list})
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')

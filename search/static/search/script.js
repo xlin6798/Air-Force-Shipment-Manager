@@ -6,11 +6,3 @@ $(document).ready(function () {
         });
     });
 });
-
-function openNav(eid) {
-    document.getElementById(eid).style.width = "400px";
-}
-
-function closeNav(eid) {
-    document.getElementById(eid).style.width = "0";
-}

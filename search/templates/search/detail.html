@@ -30,42 +30,35 @@
         </div>
     </nav>
 
-    <div class="container mt-4 text-center">
+    <div class="container mt-4">
 
         <table class="table table-light table-striped">
             <thead>
                 <tr>
-                    <th>UN</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
-                    <th>SUBSIDIARY CLASS</th>
-                    <th>PACKING GROUP</th>
-                    <th>SPECIAL PROVISIONS</th>
-                    <th>PACKING PARAGRAPH</th>
-                    <th>PROPER SHIPPING NAME/ DESCRIPTION</th>
+                    <th>UN / ID NUMBER</th>
+                    <th>PROPER SHIPPING NAME / DESCRIPTION </th>
+                    <th>HAZARD CLASS / DIV</th>
+                    <th>SUBSIDIARY RISK</th>
+                    <th>PG</th>
+                    <th>SPECIAL PROVISION</th>
+                    <th>PACKAGING PARAGRAPH</th>
                     <th>CAUTION</th>
                     <th>WARNING</th>
                 </tr>
             </thead>
             <tbody id="pnTable">
-                {% for product in product_list %}
                 <tr>
                     <td> {{ product.product_un }} </td>
                     <td> {{ product.product_psn }} </td>
                     <td>
                         {% if product.haz_as_list %}
                         {% for haz in product.haz_as_list %}
-                        <button class="btn btn-outline-primary" onclick="openNav('sp{{ forloop.counter }}')">
+                        <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                            data-bs-target="#haz{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="haz{{ forloop.counter }}">
                             {{ haz }}
                         </button>
                         {% endfor %}
-
-                        {% for desc in code_list %}
-                        <div id="sp{{ forloop.counter }}" class="sidebar">
-                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sp{{ forloop.counter }}')">&times;</a>
-                            {{ desc }}
-                        </div>
-                        {% endfor %}
-
                         {% else %}
                         {% endif %}
                     </td>
@@ -92,10 +85,13 @@
                     <td>
                         {% if product.sp_as_list %}
                         {% for sp in product.sp_as_list %}
-                        <button class="btn btn-outline-primary" onclick="openNav()">
+                        <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                            data-bs-target="#sp{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="sp{{ forloop.counter }}">
                             {{ sp }}
                         </button>
                         {% endfor %}
+
                         {% else %}
                         {% endif %}
                     </td>
@@ -109,13 +105,53 @@
                         {% else %}
                         {% endif %}
                     </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
                 </tr>
-                {% endfor %}
             </tbody>
         </table>
-    </div>
 
-    <div id="mySidebar" class="sidebar">
+        <div class="accordion accordion-flush" id="accordionExample">
+            {% for haz in haz_list %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#haz{{ forloop.counter }}" aria-expanded="true"
+                        aria-controls="haz{{ forloop.counter }}">
+                        {{ haz.haz_num }}
+                    </button>
+                </h2>
+                <div id="haz{{ forloop.counter }}" class="bg-light accordion-collapse collapse show"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>{{ haz.haz_name }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for sp in sp_list %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sp{{ forloop.counter }}" aria-expanded="true"
+                        aria-controls="sp{{ forloop.counter }}">
+                        {{ sp.sp_code }}
+                    </button>
+                </h2>
+                <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse show"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>{{ sp.sp_desc }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 

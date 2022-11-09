@@ -32,7 +32,7 @@ class Product(models.Model):
 
 class SpCode(models.Model):
     sp_code = models.CharField(max_length=200)
-    sp_desc = models.CharField(max_length=200)
+    sp_desc = models.CharField(max_length=3000)
 
 class HazClass(models.Model):
     haz_num = models.CharField(max_length=200)
