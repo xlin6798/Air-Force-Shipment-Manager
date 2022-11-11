@@ -24,3 +24,6 @@ def detail(request, un_code):
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')
+
+def source(request):
+    return render(request, 'search/source.html')

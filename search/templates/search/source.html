@@ -23,37 +23,15 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
-                    <a class="nav-link" href="{% url 'source' %}">Source</a>
-                    <a class="nav-link active" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                    <a class="nav-link active" href="{% url 'source' %}">Source</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container  mt-4 text-center">
-        <h1> SHIPMENT HISTORY </h1>
-
-        <form>
-            {% csrf_token %}
-            <input type="text" placeholder="Sort by" name="search">
-        </form>
-
-        <table class="table table-light table-striped">
-            <tr>
-                <th>DATE</th>
-                <th>TCN NUMBER</th>
-                <th>SHIP FROM</th>
-                <th>SHIP TO</th>
-            </tr>
-            <tr>
-                <th>May 4, 2022</th>
-                <th>M2683183358932XXX</th>
-                <th>LAX</th>
-                <th>LAG</th>
-            </tr>
-            <tr>
-            </tr>
-        </table>
+    <div class="container">
+        <iframe src="{% static 'search/afman24-604.pdf' %}" width="100%" height="100%" title="source pdf" allowfullscreen></iframe>
     </div>
 
 </body>
