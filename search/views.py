@@ -12,6 +12,7 @@ def detail(request, un_code):
     product = Product.objects.get(product_un=un_code)
 
     hazcode = product.product_haz_class
+    haz_class = ""
     if hazcode != "":
         hazcode = re.sub(r'[^0-9.]', '', hazcode)
         #print(hazcode)
