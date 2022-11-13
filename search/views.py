@@ -14,7 +14,7 @@ def detail(request, un_code):
     hazcode = product.product_haz_class
     if hazcode != "":
         hazcode = re.sub(r'[^0-9.]', '', hazcode)
-        print(hazcode)
+        #print(hazcode)
         haz_class = HazClass.objects.get(haz_num=hazcode)
 
     subnums = product.sub_as_list()
@@ -31,8 +31,17 @@ def detail(request, un_code):
         for spcode in spcodes:
             code = SpCode.objects.get(sp_code=spcode.strip())
             sp_list.append(code)
+
+    ppcode = product.product_paragraph
+    pp = ""
+    if ppcode != "" and ppcode != "FORBIDDEN":
+        for c in ppcode:
+            if c != '.':
+                pp += c
+            else:
+                break
     
-    return render(request, 'search/detail.html', {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list})
+    return render(request, 'search/detail.html', {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp})
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')
