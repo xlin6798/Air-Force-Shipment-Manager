@@ -33,14 +33,14 @@ def detail(request, un_code):
             sp_list.append(code)
 
     ppcode = product.product_paragraph
-    pp = ""
+    pp = ppcode
     if ppcode != "" and ppcode != "FORBIDDEN":
+        pp = ""
         for c in ppcode:
             if c != '.':
                 pp += c
             else:
                 break
-    
     return render(request, 'search/detail.html', {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp})
 
 def shipmentHistory(request):
