@@ -52,15 +52,12 @@
                     <td> {{ product.product_un }} </td>
                     <td> {{ product.product_psn }} </td>
                     <td>
-                        {% if product.haz_as_list %}
-                        {% for haz in product.haz_as_list %}
+                        {% if product.product_haz_class %}
                         <button class="btn btn-outline-primary" data-bs-toggle="collapse"
-                            data-bs-target="#haz{{ forloop.counter }}" aria-expanded="true"
-                            aria-controls="haz{{ forloop.counter }}">
-                            {{ haz }}
+                            data-bs-target="#haz" aria-expanded="true"
+                            aria-controls="haz">
+                            {{ product.product_haz_class }}
                         </button>
-                        {% endfor %}
-                        {% else %}
                         {% endif %}
                     </td>
                     <td>
@@ -72,7 +69,6 @@
                             {{ sub }}
                         </button>
                         {% endfor %}
-                        {% else %}
                         {% endif %}
                     </td>
                     <td>
@@ -82,7 +78,6 @@
                             {{ pg }}
                         </button>
                         {% endfor %}
-                        {% else %}
                         {% endif %}
                     </td>
                     <td>
@@ -94,27 +89,18 @@
                             {{ sp }}
                         </button>
                         {% endfor %}
-
-                        {% else %}
                         {% endif %}
                     </td>
                     <td>
-                        {% if product.paragraph_as_list %}
-                        {% for paragraph in product.paragraph_as_list %}
+                        {% if product.product_paragraph %}
                         <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#pp" aria-controls="pp">
-                            {{ paragraph }}
+                            {{ product.product_paragraph }}
                         </button>
-                        {% endfor %}
-                        {% else %}
                         {% endif %}
                     </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -123,11 +109,11 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#haz{{ forloop.counter }}" aria-controls="haz{{ forloop.counter }}">
+                        data-bs-target="#haz" aria-controls="haz">
                         Class {{ haz_class.haz_num }}
                     </button>
                 </h2>
-                <div id="haz{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
+                <div id="haz" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <strong>{{ haz_class.haz_name }}</strong>
