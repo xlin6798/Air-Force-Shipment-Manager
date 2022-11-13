@@ -102,8 +102,8 @@
                         {% if product.paragraph_as_list %}
                         {% for paragraph in product.paragraph_as_list %}
                         <button class="btn btn-outline-primary"  type="button" data-bs-toggle="collapse"
-                        data-bs-target="#pp{{ forloop.counter }}"
-                        aria-controls="pp{{ forloop.counter }}">
+                        data-bs-target="#pp"
+                        aria-controls="pp">
                             {{ paragraph }}
                         </button>
                         {% endfor %}
@@ -177,15 +177,15 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#pp{{ forloop.counter }}"
-                        aria-controls="pp{{ forloop.counter }}">
+                        data-bs-target="#pp"
+                        aria-controls="pp">
                         Packaging Paragraph {{ pp }}
                     </button>
                 </h2>
-                <div id="pp{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
+                <div id="pp" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <iframe src="{% static 'search/attachments/'|add:pp|add:'.pdf' %}" width="100%" height="100%" title="source pdf" allowfullscreen></iframe>
+                        <embed src="{% static 'search/attachments/'|add:pp|add:'.pdf' %}" type="application/pdf" width="100%" height="100%" />
                     </div>
                 </div>
             </div>
