@@ -4,7 +4,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project_name.settings")
 from search.models import Product, SpCode, HazClass
 import csv
 
-with open('scripts/A41.csv') as file:
+with open('scripts/ProductList.csv') as file:
     reader = csv.reader(file)
     next(reader)  # Advance past the header
 
@@ -22,7 +22,7 @@ with open('scripts/A41.csv') as file:
         product.product_paragraph=row[6]
         product.save()
 
-with open('scripts/A42.csv') as file:
+with open('scripts/SpCode.csv') as file:
     reader = csv.reader(file)
     next(reader)  # Advance past the header
 
