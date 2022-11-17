@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 shadow-lg mb-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">AFSM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -42,8 +42,8 @@
             </div>
         </form>
 
-        <table class="table table-light table-striped table-hover">
-            <thead>
+        <table class="table table-light table-hover">
+            <thead class="table-dark">
                 <tr>
                     <th>UN / ID NUMBER</th>
                     <th>PROPER SHIPPING NAME / DESCRIPTION </th>
@@ -55,8 +55,8 @@
                 </tr>
             </thead>
             <tbody id="pnTable">
-                {% for product in product_list %}
-                    <tr class='clickable' onclick="window.location='/products/{{ product.product_un }}' ">
+                {% for product in products %}
+                    <tr class="clickable" onclick="window.location='/products/{{ product.product_un }}' ">
                         <td> {{ product.product_un }} </td>
                         <td> {{ product.product_psn }} </td>
                         <td> {{ product.product_haz_class }} </td>

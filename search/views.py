@@ -1,11 +1,12 @@
 from queue import Empty
 from django.shortcuts import render
 from .models import Product, SpCode, HazClass
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import re
 
 def index(request):
-    product_list = Product.objects.order_by('product_un').all()
-    context = {'product_list': product_list}
+    products = Product.objects.order_by('product_un').all()
+    context = {'products': products}
     return render(request, 'search/index.html', context)
 
 def detail(request, un_code):
@@ -42,7 +43,9 @@ def detail(request, un_code):
                 pp += c
             else:
                 break
-    return render(request, 'search/detail.html', {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp})
+
+    context = {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp}
+    return render(request, 'search/detail.html', context)
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')
