@@ -2,38 +2,38 @@ from distutils.spawn import spawn
 from django.db import models
 
 class Product(models.Model):
-    product_un = models.CharField(max_length=200)
-    product_psn = models.CharField(max_length=200)
-    product_haz_class = models.CharField(max_length=200)
-    product_sub_class = models.CharField(max_length=200)
-    product_pg = models.CharField(max_length=200)
-    product_sp = models.CharField(max_length=200)
-    product_paragraph = models.CharField(max_length=200)
+    un = models.CharField(max_length=200)
+    psn = models.CharField(max_length=200)
+    hazard = models.CharField(max_length=200)
+    subrisk = models.CharField(max_length=200)
+    pg = models.CharField(max_length=200)
+    sp = models.CharField(max_length=200)
+    paragraph = models.CharField(max_length=200)
     def haz_as_list(self):
-        if len(self.product_haz_class) == 0:
+        if len(self.hazard) == 0:
             return False
-        return self.product_haz_class.split(',')
+        return self.harzard.split(',')
     def sub_as_list(self):
-        if len(self.product_sub_class) == 0:
+        if len(self.subrisk) == 0:
             return False
-        return self.product_sub_class.split(',')
+        return self.subrisk.split(',')
     def pg_as_list(self):
-        if len(self.product_pg) == 0:
+        if len(self.pg) == 0:
             return False
-        return self.product_pg.split(',')
+        return self.pg.split(',')
     def sp_as_list(self):
-        if len(self.product_sp) == 0:
+        if len(self.sp) == 0:
             return False
-        return self.product_sp.split(',')
+        return self.sp.split(',')
     def paragraph_as_list(self):
-        if len(self.product_paragraph) == 0:
+        if len(self.paragraph) == 0:
             return False
-        return self.product_paragraph.split(',')
+        return self.paragraph.split(',')
 
 class SpCode(models.Model):
-    sp_code = models.CharField(max_length=200)
-    sp_desc = models.CharField(max_length=3000)
+    code = models.CharField(max_length=200)
+    desc = models.TextField()
 
 class HazClass(models.Model):
-    haz_num = models.CharField(max_length=200)
-    haz_name = models.CharField(max_length=200)
+    code = models.CharField(max_length=200)
+    desc = models.TextField()

@@ -9,7 +9,6 @@
 <head>
     <link rel="stylesheet" href="{% static 'search/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'search/script.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -42,9 +41,23 @@
             </div>
         </form>
 
-        <table class="table table-light table-hover">
+
+        <div class="mb-3 d-flex flex-row">
+            <label for="inputPassword" class="p-2">Show</label>
+            <div class="p-2">
+                <select class="form-control" name="state" id="maxRows">
+                    <option value="5000">Show ALL Rows</option>
+                    <option value="10">10</option>
+                    <option value="20">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+
+        <table class="table table-light table-hover" id="table-id">
             <thead class="table-dark">
-                <tr>
+                <tr class="filtered">
                     <th>UN / ID NUMBER</th>
                     <th>PROPER SHIPPING NAME / DESCRIPTION </th>
                     <th>HAZARD CLASS / DIV</th>
@@ -56,19 +69,36 @@
             </thead>
             <tbody id="pnTable">
                 {% for product in products %}
-                    <tr class="clickable" onclick="window.location='/products/{{ product.product_un }}' ">
-                        <td> {{ product.product_un }} </td>
-                        <td> {{ product.product_psn }} </td>
-                        <td> {{ product.product_haz_class }} </td>
-                        <td> {{ product.product_sub_class }} </td>
-                        <td> {{ product.product_pg }} </td>
-                        <td> {{ product.product_sp }} </td>
-                        <td> {{ product.product_paragraph }} </td>
-                    </tr>
+                <tr class="clickable filtered" onclick="window.location='/products/{{ product.un }}' ">
+                    <td> {{ product.un }} </td>
+                    <td> {{ product.psn }} </td>
+                    <td> {{ product.hazard }} </td>
+                    <td> {{ product.subrisk }} </td>
+                    <td> {{ product.pg }} </td>
+                    <td> {{ product.sp }} </td>
+                    <td> {{ product.paragraph }} </td>
+                </tr>
                 {% endfor%}
             </tbody>
         </table>
+
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled" data-page="prev">
+                    <a class="page-link">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" data-page="next">
+                    <a class="page-link">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </body>
+
+<script src="{% static 'search/script.js' %}"></script>
 
 </html>

@@ -13,13 +13,13 @@ with open('scripts/ProductList.csv') as file:
     for row in reader:
         print(row)
         product = Product()
-        product.product_un=row[0]
-        product.product_psn=row[1]
-        product.product_haz_class=row[2]
-        product.product_sub_class=row[3]
-        product.product_pg=row[4]
-        product.product_sp=row[5]
-        product.product_paragraph=row[6]
+        product.un=row[0]
+        product.psn=row[1]
+        product.hazard=row[2]
+        product.subrisk=row[3]
+        product.pg=row[4]
+        product.sp=row[5]
+        product.paragraph=row[6]
         product.save()
 
 with open('scripts/SpCode.csv') as file:
@@ -31,8 +31,8 @@ with open('scripts/SpCode.csv') as file:
     for row in reader:
         print(row)
         spcode = SpCode()
-        spcode.sp_code=row[0]
-        spcode.sp_desc=row[1]
+        spcode.code=row[0]
+        spcode.desc=row[1]
         spcode.save()
 
 with open('scripts/HazClass.csv') as file:
@@ -44,6 +44,6 @@ with open('scripts/HazClass.csv') as file:
     for row in reader:
         print(row)
         hazclass = HazClass()
-        hazclass.haz_num =row[0]
-        hazclass.haz_name =row[1]
+        hazclass.code =row[0]
+        hazclass.desc =row[1]
         hazclass.save()

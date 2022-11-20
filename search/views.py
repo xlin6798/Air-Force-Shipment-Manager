@@ -5,36 +5,36 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import re
 
 def index(request):
-    products = Product.objects.order_by('product_un').all()
+    products = Product.objects.order_by('un').all()
     context = {'products': products}
     return render(request, 'search/index.html', context)
 
 def detail(request, un_code):
-    product = Product.objects.get(product_un=un_code)
+    product = Product.objects.get(un=un_code)
 
-    hazcode = product.product_haz_class
+    hazcode = product.hazard
     haz_class = ""
     if hazcode != "":
         hazcode = re.sub(r'[^0-9.]', '', hazcode)
         #print(hazcode)
-        haz_class = HazClass.objects.get(haz_num=hazcode)
+        haz_class = HazClass.objects.get(code=hazcode)
 
-    subnums = product.sub_as_list()
+    subcodes = product.sub_as_list()
     sub_list = []
-    if subnums:
-        for subnum in subnums:
-            subnum = re.sub(r'[^0-9.]', '', subnum)
-            sub = HazClass.objects.get(haz_num=subnum)
+    if subcodes:
+        for subcode in subcodes:
+            subcode = re.sub(r'[^0-9.]', '', subcode)
+            sub = HazClass.objects.get(code=subcode)
             sub_list.append(sub)
 
     spcodes = product.sp_as_list()
     sp_list = []
     if spcodes:
         for spcode in spcodes:
-            code = SpCode.objects.get(sp_code=spcode.strip())
+            code = SpCode.objects.get(code=spcode.strip())
             sp_list.append(code)
 
-    ppcode = product.product_paragraph
+    ppcode = product.paragraph
     pp = ppcode
     if ppcode != "" and ppcode != "FORBIDDEN":
         pp = ""

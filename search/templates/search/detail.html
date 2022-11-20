@@ -49,14 +49,14 @@
             </thead>
             <tbody id="pnTable">
                 <tr>
-                    <td> {{ product.product_un }} </td>
-                    <td> {{ product.product_psn }} </td>
+                    <td> {{ product.un }} </td>
+                    <td> {{ product.psn }} </td>
                     <td>
-                        {% if product.product_haz_class %}
+                        {% if product.hazard %}
                         <button class="btn btn-outline-primary" data-bs-toggle="collapse"
                             data-bs-target="#haz" aria-expanded="true"
                             aria-controls="haz">
-                            {{ product.product_haz_class }}
+                            {{ product.hazard }}
                         </button>
                         {% endif %}
                     </td>
@@ -92,10 +92,10 @@
                         {% endif %}
                     </td>
                     <td>
-                        {% if product.product_paragraph %}
+                        {% if product.paragraph %}
                         <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#pp" aria-controls="pp">
-                            {{ product.product_paragraph }}
+                            {{ product.paragraph }}
                         </button>
                         {% endif %}
                     </td>
@@ -111,13 +111,13 @@
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#haz" aria-controls="haz">
-                        Class {{ haz_class.haz_num }}
+                        Class {{ haz_class.code }}
                     </button>
                 </h2>
                 <div id="haz" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>{{ haz_class.haz_name }}</strong>
+                        <strong>{{ haz_class.desc }}</strong>
                     </div>
                 </div>
             </div>
@@ -128,13 +128,13 @@
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#sub{{ forloop.counter }}" aria-controls="sub{{ forloop.counter }}">
-                        Subsidiary Risk {{ sub.haz_num }}
+                        Subsidiary Risk {{ sub.code }}
                     </button>
                 </h2>
                 <div id="sub{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>{{ sub.haz_name }}</strong>
+                        <strong>{{ sub.desc }}</strong>
                     </div>
                 </div>
             </div>
@@ -145,13 +145,13 @@
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#sp{{ forloop.counter }}" aria-controls="sp{{ forloop.counter }}">
-                        SP {{ sp.sp_code }}
+                        SP {{ sp.code }}
                     </button>
                 </h2>
                 <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>{{ sp.sp_desc }}</strong>
+                        <strong>{{ sp.desc }}</strong>
                     </div>
                 </div>
             </div>
