@@ -39,8 +39,7 @@ function getPagination(table) {
             }
 
             var totalRows = $(table + ' tbody tr.filtered').length;
-            console.log(totalRows);
-            $(table + ' tr.filtered:gt(0)').each(function () {
+            $(table + ' tr.filtered').each(function () {
                 trnum++;
                 if (trnum > maxRows) {
                     $(this).hide();
@@ -49,6 +48,10 @@ function getPagination(table) {
                     $(this).show();
                 }
             });
+            if (totalRows <= maxRows) {
+                $('.pagination li').hide();
+                return;
+            }
             if (totalRows > maxRows) {
                 var pagenum = Math.ceil(totalRows / maxRows);
                 for (var i = 1; i <= pagenum;) {
@@ -84,7 +87,7 @@ function getPagination(table) {
                 $('.pagination li.active').removeClass('active');
                 $('.pagination [data-page="' + lastPage + '"]').addClass('active');
                 limitPagging();
-                $(table + ' tr.filtered:gt(0)').each(function () {
+                $(table + ' tr.filtered').each(function () {
                     trIndex++;
                     if (
                         trIndex > maxRows * pageNum ||
@@ -118,15 +121,15 @@ function getPagination(table) {
 }
 
 function limitPagging() {
-    if ($('.pagination li').length > 7) {
-        if ($('.pagination li.active').attr('data-page') <= 3) {
-            $('.pagination li:gt(5)').hide();
-            $('.pagination li:lt(5)').show();
+    if ($('.pagination li').length > 11) {
+        if ($('.pagination li.active').attr('data-page') <= 5) {
+            $('.pagination li:gt(9)').hide();
+            $('.pagination li:lt(9)').show();
             $('.pagination [data-page="next"]').show();
-        } if ($('.pagination li.active').attr('data-page') > 3) {
+        } if ($('.pagination li.active').attr('data-page') > 5) {
             $('.pagination li:gt(0)').hide();
             $('.pagination [data-page="next"]').show();
-            for (let i = (parseInt($('.pagination li.active').attr('data-page')) - 2); i <= (parseInt($('.pagination li.active').attr('data-page')) + 2); i++) {
+            for (let i = (parseInt($('.pagination li.active').attr('data-page')) - 4); i <= 2 + (parseInt($('.pagination li.active').attr('data-page')) + 2); i++) {
                 $('.pagination [data-page="' + i + '"]').show();
             }
         }
