@@ -37,3 +37,8 @@ class SpCode(models.Model):
 class HazClass(models.Model):
     code = models.CharField(max_length=200)
     desc = models.TextField()
+
+class HazSubstance(models.Model):
+    haz_psn = models.CharField(max_length=200)
+    haz_weight_pounds = models.CharField(max_length=200)
+    haz_weight_kilograms = models.CharField(max_length=200)

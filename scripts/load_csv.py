@@ -1,7 +1,7 @@
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project_name.settings")
 
-from search.models import Product, SpCode, HazClass
+from search.models import Product, SpCode, HazClass, HazSubstance
 import csv
 
 with open('scripts/ProductList.csv') as file:
@@ -47,3 +47,17 @@ with open('scripts/HazClass.csv') as file:
         hazclass.code =row[0]
         hazclass.desc =row[1]
         hazclass.save()
+
+with open('scripts/HazSubstance.csv') as file:
+    reader = csv.reader(file)
+    next(reader)  # Advance past the header
+
+    HazSubstance.objects.all().delete()
+
+    for row in reader:
+        print(row)
+        hazsubstance = HazSubstance()
+        hazsubstance.haz_psn =row[0]
+        hazsubstance.haz_weight_pounds =row[1]
+        hazsubstance.haz_weight_kilograms =row[2]
+        hazsubstance.save()
