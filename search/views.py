@@ -48,7 +48,7 @@ def detail(request, un_code):
     return render(request, 'search/detail.html', context)
 
 def hazard(request):
-    hazsubstances = HazSubstance.objects.order_by('haz_psn').all()
+    hazsubstances = HazSubstance.objects.order_by('psn').all()
     context = {'hazsubstances': hazsubstances}
     return render(request, 'search/hazard.html', context)
 

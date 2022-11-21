@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                    <a class="nav-link"  href="{% url 'hazard' %}">Hazard</a>
+                    <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
                     <a class="nav-link" href="{% static 'search/afman24-604.pdf' %}">Source</a>
                     <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                 </div>
@@ -33,13 +33,6 @@
 
     <div class="container mt-4 table-responsive">
         <h1 class="text-center"> Air Force Shipment Manager </h1>
-
-        <form>
-            <div class="row">
-                
-            </div>
-        </form>
-
 
         <div class="mb-3 d-flex">
             <div class="me-2">
@@ -57,16 +50,11 @@
             </div>
         </div>
 
-        <table class="table table-light table-hover" id="table-id">
+        <table id="table-id" class="table table-light table-hover">
             <thead class="table-dark">
                 <tr>
                     <th width="100">UN / ID NUMBER</th>
                     <th>PROPER SHIPPING NAME / DESCRIPTION </th>
-                    <!--th>HAZARD CLASS / DIV</th>
-                    <th>SUBSIDIARY RISK</th>
-                    <th>PG</th>
-                    <th>SPECIAL PROVISION</th>
-                    <th>PACKAGING PARAGRAPH</th-->
                 </tr>
             </thead>
             <tbody id="pnTable">
@@ -74,11 +62,6 @@
                 <tr class="clickable filtered" onclick="window.location='/products/{{ product.un }}' ">
                     <td scope="col"> {{ product.un }} </td>
                     <td scope="col"> {{ product.psn }} </td>
-                    <!--td scope="col"> {{ product.hazard }} </td>
-                    <td scope="col"> {{ product.subrisk }} </td>
-                    <td scope="col"> {{ product.pg }} </td>
-                    <td scope="col"> {{ product.sp }} </td>
-                    <td scope="col"> {{ product.paragraph }} </td-->
                 </tr>
                 {% endfor%}
             </tbody>
@@ -87,20 +70,25 @@
         <nav>
             <ul class="pagination justify-content-center">
                 <li class="page-item disabled" data-page="prev">
-                    <a class="page-link">
+                    <a class="page-link link-dark">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 <li class="page-item" data-page="next">
-                    <a class="page-link">
+                    <a class="page-link link-dark">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
             </ul>
         </nav>
+
+        <footer class="py-3 my-4">
+            <p class="text-center text-muted">© 2022 AFSM</p>
+        </footer>
     </div>
+
+    <script src="{% static 'search/script.js' %}"></script>
 </body>
 
-<script src="{% static 'search/script.js' %}"></script>
 
 </html>

@@ -9,7 +9,6 @@
 <head>
     <link rel="stylesheet" href="{% static 'search/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'search/script.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -35,33 +34,62 @@
     <div class="container mt-4 table-responsive">
         <h1 class="text-center"> Hazardous Substances </h1>
 
-        <form>
-            <div class="row">
-                <div class="col">
-                    <input class="form-control" type="text" id="filterInput" placeholder="Filter by Proper Shipping Name">
-                </div>
+        <div class="mb-3 d-flex">
+            <div class="me-2">
+                <select class="form-control" name="state" id="maxRows">
+                    <option value="5000">Show ALL Rows</option>
+                    <option value="5">Show 5 Rows</option>
+                    <option value="10">Show 10 Rows</option>
+                    <option value="20">Show 25 Rows</option>
+                    <option value="50">Show 50 Rows</option>
+                    <option value="100">Show 100 Rows</option>
+                </select>
             </div>
-        </form>
+            <div class="flex-grow-1">
+                <input class="form-control" type="text" id="filterInput" placeholder="">
+            </div>
+        </div>
 
-        <table class="table table-light table-hover">
+        <table id="table-id" class="table table-light table-hover">
             <thead class="table-dark">
                 <tr>
                     <th>PROPER SHIPPING NAME / DESCRIPTION </th>
-                    <th>POUNDS</th>
-                    <th>KILOGRAMS</th>
+                    <th width="150">POUNDS</th>
+                    <th width="150">KILOGRAMS</th>
                 </tr>
             </thead>
             <tbody id="pnTable">
                 {% for hazsubstance in hazsubstances %}
-                    <tr>
-                        <td> {{ hazsubstance.haz_psn }} </td>
-                        <td> {{ hazsubstance.haz_weight_pounds }} </td>
-                        <td> {{ hazsubstance.haz_weight_kilograms }} </td>
+                    <tr class="filtered">
+                        <td scope="col"> {{ hazsubstance.psn }} </td>
+                        <td scope="col"> {{ hazsubstance.weight_lbs }} </td>
+                        <td scope="col"> {{ hazsubstance.weight_kgs }} </td>
                     </tr>
                 {% endfor%}
             </tbody>
         </table>
+
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled" data-page="prev">
+                    <a class="page-link link-dark">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" data-page="next">
+                    <a class="page-link link-dark">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <footer class="py-3 my-4">
+            <p class="text-center text-muted">© 2022 AFSM</p>
+        </footer>
     </div>
+
+    <script src="{% static 'search/script.js' %}"></script>
 </body>
 
 </html>

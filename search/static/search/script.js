@@ -60,7 +60,7 @@ function getPagination(table) {
                 for (var i = 1; i <= pagenum;) {
                     $('.pagination [data-page="next"]')
                         .before(
-                            '<li class="page-item" data-page="' + i + '"><a class="page-link"">' + i++ + '</a> </li>'
+                            '<li class="page-item" data-page="' + i + '"><a class="page-link link-dark">' + i++ + '</a> </li>'
                         )
                         .show();
                 }

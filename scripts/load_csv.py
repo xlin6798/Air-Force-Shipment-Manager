@@ -57,7 +57,7 @@ with open('scripts/HazSubstance.csv') as file:
     for row in reader:
         print(row)
         hazsubstance = HazSubstance()
-        hazsubstance.haz_psn =row[0]
-        hazsubstance.haz_weight_pounds =row[1]
-        hazsubstance.haz_weight_kilograms =row[2]
+        hazsubstance.psn =row[0]
+        hazsubstance.weight_lbs =row[1]
+        hazsubstance.weight_kgs =row[2]
         hazsubstance.save()

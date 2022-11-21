@@ -1,0 +1,43 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 shadow-lg mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">AFSM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
+                    <a class="nav-link" href="{% static 'search/afman24-604.pdf' %}">Source</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+            <footer class="py-3 my-4">
+                <p class="text-center text-muted">© 2022 AFSM</p>
+            </footer>
+    </div>
+</body>
+
+<script src="{% static 'search/script.js' %}"></script>
+
+</html>

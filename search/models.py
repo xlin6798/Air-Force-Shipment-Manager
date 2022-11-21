@@ -39,6 +39,6 @@ class HazClass(models.Model):
     desc = models.TextField()
 
 class HazSubstance(models.Model):
-    haz_psn = models.CharField(max_length=200)
-    haz_weight_pounds = models.CharField(max_length=200)
-    haz_weight_kilograms = models.CharField(max_length=200)
+    psn = models.CharField(max_length=200)
+    weight_lbs = models.CharField(max_length=200)
+    weight_kgs = models.CharField(max_length=200)
