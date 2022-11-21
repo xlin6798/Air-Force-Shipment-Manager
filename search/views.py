@@ -1,6 +1,6 @@
 from queue import Empty
 from django.shortcuts import render
-from .models import Product, SpCode, HazClass
+from .models import HazSubstance, Product, SpCode, HazClass
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import re
 
@@ -46,6 +46,11 @@ def detail(request, un_code):
 
     context = {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp}
     return render(request, 'search/detail.html', context)
+
+def hazard(request):
+    hazsubstances = HazSubstance.objects.order_by('haz_psn').all()
+    context = {'hazsubstances': hazsubstances}
+    return render(request, 'search/hazard.html', context)
 
 def shipmentHistory(request):
     return render(request, 'search/shipmentHistory.html')

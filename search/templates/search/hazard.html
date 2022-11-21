@@ -1,0 +1,67 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'search/script.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 shadow-lg mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">AFSM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'hazard' %}">Hazard</a>
+                    <a class="nav-link" href="{% static 'search/afman24-604.pdf' %}">Source</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4 table-responsive">
+        <h1 class="text-center"> Hazardous Substances </h1>
+
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control" type="text" id="filterInput" placeholder="Filter by Proper Shipping Name">
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-light table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>PROPER SHIPPING NAME / DESCRIPTION </th>
+                    <th>POUNDS</th>
+                    <th>KILOGRAMS</th>
+                </tr>
+            </thead>
+            <tbody id="pnTable">
+                {% for hazsubstance in hazsubstances %}
+                    <tr>
+                        <td> {{ hazsubstance.haz_psn }} </td>
+                        <td> {{ hazsubstance.haz_weight_pounds }} </td>
+                        <td> {{ hazsubstance.haz_weight_kilograms }} </td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

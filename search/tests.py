@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Product, SpCode, HazClass
+from .models import Product, SpCode, HazClass, HazSubstance
 
 # Create your tests here.
 class TestPages(TestCase):
@@ -8,3 +8,11 @@ class TestPages(TestCase):
     def test_NA0331(self):
         page = self.client.get('/products/NA0331')
         self.assertEqual(page.status_code, 301)
+
+    def test_HazardPage(self):
+        page = self.client.get('/hazard')
+        self.assertEqual(page.status_code, 200)
+
+    def test_ShipmentHistoryPage(self):
+        page = self.client.get('/shipmentHistory')
+        self.assertEqual(page.status_code, 200)
