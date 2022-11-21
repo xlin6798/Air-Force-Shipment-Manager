@@ -19,6 +19,9 @@ $(document).ready(function () {
 
 getPagination('#table-id');
 
+var maxRows;
+var totalRows;
+
 function getPagination(table) {
     var lastPage = 1;
 
@@ -30,7 +33,7 @@ function getPagination(table) {
                 .slice(1, -1)
                 .remove();
             var trnum = 0;
-            var maxRows = parseInt($(this).val());
+            maxRows = parseInt($(this).val());
 
             if (maxRows == 5000) {
                 $('.pagination').hide();
@@ -121,15 +124,23 @@ function getPagination(table) {
 }
 
 function limitPagging() {
+    console.log(totalRows);
     if ($('.pagination li').length > 11) {
-        if ($('.pagination li.active').attr('data-page') <= 5) {
+        if ($('.pagination li.active').attr('data-page') >= $('.pagination li').length - 5) {
+            console.log($('.pagination li').length);
+            $('.pagination li').hide();
+            $('.pagination li:lt(1)').show();
+            $('.pagination li').slice(-10).show();
+        }
+        else if ($('.pagination li.active').attr('data-page') <= 5) {
             $('.pagination li:gt(9)').hide();
             $('.pagination li:lt(9)').show();
             $('.pagination [data-page="next"]').show();
-        } if ($('.pagination li.active').attr('data-page') > 5) {
+        }
+        else if ($('.pagination li.active').attr('data-page') > 5) {
             $('.pagination li:gt(0)').hide();
             $('.pagination [data-page="next"]').show();
-            for (let i = (parseInt($('.pagination li.active').attr('data-page')) - 4); i <= 2 + (parseInt($('.pagination li.active').attr('data-page')) + 2); i++) {
+            for (let i = (parseInt($('.pagination li.active').attr('data-page')) - 4); i <= (parseInt($('.pagination li.active').attr('data-page')) + 4); i++) {
                 $('.pagination [data-page="' + i + '"]').show();
             }
         }
