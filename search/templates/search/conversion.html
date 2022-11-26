@@ -32,169 +32,166 @@
         </div>
     </nav>
 
-    <div class="row justify-content-center">
+    <div class="container-fluid row justify-content-center">
         <div class="col-xl-6 col-lg-7 col-md-9 col-sm-11 col-12">
-            <div class="container-fluid w-100">
-                <div class="d-flex justify-content-center mb-1">
+            <div class="d-flex justify-content-center mb-1">
+                <div class="w-100">
+                    <select id="unit-select" class="form-select">
+                        <option value="0">Volume</option>
+                        <option value="1">Weight</option>
+                        <option value="2">Length</option>
+                        <option value="3">Radioactive</option>
+                        <option value="4">Volume</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="unit-0">
+                <div class="d-flex justify-content-center mb-3">
                     <div class="w-100">
-                        <select id="unit-select" class="form-select">
-                            <option value="0">Volume</option>
-                            <option value="1">Weight</option>
-                            <option value="2">Length</option>
-                            <option value="3">Radioactive</option>
-                            <option value="4">Volume</option>
+                        <input type="text" value="1000"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                            id="text-left-0">
+                        <select class="form-select rounded-0 rounded-bottom select-left" id="left-0">
+                            <option value="1000" selected>Millilter</option>
+                            <option value="1">Liter</option>
+                            <option value=".264">Gallon</option>
+                            <option value="1.057">Quartz</option>
+                            <option value="61.025">Cubic Inch</option>
+                            <option value=".03531">Cubic Foot</option>
+                            <option value=".001">Cubic Meter</option>
+                            <option value=".0000338">Oz</option>
+                            <option value="33.915">Fluid Ounce</option>
+                        </select>
+                    </div>
+                    <div class="align-self-center p-2">=</div>
+                    <div class="w-100">
+                        <input type="text" value="1"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                            id="text-right-0">
+                        <select class="form-select rounded-0 rounded-bottom select-right" id="right-0">
+                            <option value="1000">Millilter</option>
+                            <option value="1" selected>Liter</option>
+                            <option value=".264">Gallon</option>
+                            <option value="1.057">Quartz</option>
+                            <option value="61.025">Cubic Inch</option>
+                            <option value=".03531">Cubic Foot</option>
+                            <option value=".001">Cubic Meter</option>
+                            <option value=".0000338">Oz</option>
+                            <option value="33.915">Fluid Ounce</option>
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <div id="unit-0">
-                    <div class="d-flex justify-content-center mb-3">
-                        <div class="w-100">
-                            <input type="text" value="1000"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
-                                id="text-left-0">
-                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-0">
-                                <option value="1000" selected>Millilter</option>
-                                <option value="1">Liter</option>
-                                <option value=".264">Gallon</option>
-                                <option value="1.057">Quartz</option>
-                                <option value="61.025">Cubic Inch</option>
-                                <option value=".03531">Cubic Foot</option>
-                                <option value=".001">Cubic Meter</option>
-                                <option value=".0000338">Oz</option>
-                                <option value="33.915">Fluid Ounce</option>
-                            </select>
-                        </div>
-                        <div class="align-self-center p-2">=</div>
-                        <div class="w-100">
-                            <input type="text" value="1"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
-                                id="text-right-0">
-                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-0">
-                                <option value="1000">Millilter</option>
-                                <option value="1" selected>Liter</option>
-                                <option value=".264">Gallon</option>
-                                <option value="1.057">Quartz</option>
-                                <option value="61.025">Cubic Inch</option>
-                                <option value=".03531">Cubic Foot</option>
-                                <option value=".001">Cubic Meter</option>
-                                <option value=".0000338">Oz</option>
-                                <option value="33.915">Fluid Ounce</option>
-                            </select>
-                        </div>
+            <div id="unit-1">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="w-100">
+                        <input type="text" value="1000"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                            id="text-left-1">
+                        <select class="form-select rounded-0 rounded-bottom select-left" id="left-1">
+                            <option value="1000" selected>Gram</option>
+                            <option value="1">Kilogram</option>
+                            <option value="2.205">Pound</option>
+                            <option value="35.274">Ounce</option>
+                        </select>
+                    </div>
+                    <div class="align-self-center p-2">=</div>
+                    <div class="w-100">
+                        <input type="text" value="1"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                            id="text-right-1">
+                        <select class="form-select rounded-0 rounded-bottom select-right" id="right-1">
+                            <option value="1000">Gram</option>
+                            <option value="1" selected>Kilogram</option>
+                            <option value="2.205">Pound</option>
+                            <option value="35.274">Ounce</option>
+                        </select>
                     </div>
                 </div>
+            </div>
 
-                <div id="unit-1">
-                    <div class="d-flex justify-content-center mb-3">
-                        <div class="w-100">
-                            <input type="text" value="1000"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
-                                id="text-left-1">
-                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-1">
-                                <option value="1000" selected>Gram</option>
-                                <option value="1">Kilogram</option>
-                                <option value="2.205">Pound</option>
-                                <option value="35.274">Ounce</option>
-                            </select>
-                        </div>
-                        <div class="align-self-center p-2">=</div>
-                        <div class="w-100">
-                            <input type="text" value="1"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
-                                id="text-right-1">
-                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-1">
-                                <option value="1000">Gram</option>
-                                <option value="1" selected>Kilogram</option>
-                                <option value="2.205">Pound</option>
-                                <option value="35.274">Ounce</option>
-                            </select>
-                        </div>
+            <div id="unit-2">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="w-100">
+                        <input type="text" value="1000"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                            id="text-left-2">
+                        <select class="form-select rounded-0 rounded-bottom select-left" id="left-2">
+                            <option value="1000" selected>Millimeter</option>
+                            <option value="100">Centimeter</option>
+                            <option value="1">Meter</option>
+                            <option value="39.37">Inch</option>
+                            <option value="3.28">Foot</option>
+                        </select>
+                    </div>
+                    <div class="align-self-center p-2">=</div>
+                    <div class="w-100">
+                        <input type="text" value="1"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                            id="text-right-2">
+                        <select class="form-select rounded-0 rounded-bottom select-right" id="right-2">
+                            <option value="1000">Millimeter</option>
+                            <option value="100" selected>Centimeter</option>
+                            <option value="1">Meter</option>
+                            <option value="39.37">Inch</option>
+                            <option value="3.28">Foot</option>
+                        </select>
                     </div>
                 </div>
+            </div>
 
-                <div id="unit-2">
-                    <div class="d-flex justify-content-center mb-3">
-                        <div class="w-100">
-                            <input type="text" value="1000"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
-                                id="text-left-2">
-                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-2">
-                                <option value="1000" selected>Millimeter</option>
-                                <option value="100">Centimeter</option>
-                                <option value="1">Meter</option>
-                                <option value="39.37">Inch</option>
-                                <option value="3.28">Foot</option>
-                            </select>
-                        </div>
-                        <div class="align-self-center p-2">=</div>
-                        <div class="w-100">
-                            <input type="text" value="1"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
-                                id="text-right-2">
-                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-2">
-                                <option value="1000">Millimeter</option>
-                                <option value="100" selected>Centimeter</option>
-                                <option value="1">Meter</option>
-                                <option value="39.37">Inch</option>
-                                <option value="3.28">Foot</option>
-                            </select>
-                        </div>
+            <div id="unit-3">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="w-100">
+                        <input type="text" value="1000"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                            id="text-left-3">
+                        <select class="form-select rounded-0 rounded-bottom select-left" id="left-3">
+                            <option value="1" selected>Pound Per Square Inch (PSI)</option>
+                            <option value="6.895">Kilopascal</option>
+                        </select>
+                    </div>
+                    <div class="align-self-center p-2">=</div>
+                    <div class="w-100">
+                        <input type="text" value="1"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                            id="text-right-3">
+                        <select class="form-select rounded-0 rounded-bottom select-right" id="right-3">
+                            <option value="1">Pound Per Square Inch (PSI)</option>
+                            <option value="6.895" selected>Kilopascal</option>
+                        </select>
                     </div>
                 </div>
+            </div>
 
-                <div id="unit-3">
-                    <div class="d-flex justify-content-center mb-3">
-                        <div class="w-100">
-                            <input type="text" value="1000"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
-                                id="text-left-3">
-                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-3">
-                                <option value="1" selected>Pound Per Square Inch (PSI) </option>
-                                <option value="6.895">Kilopascal</option>
-                            </select>
-                        </div>
-                        <div class="align-self-center p-2">=</div>
-                        <div class="w-100">
-                            <input type="text" value="1"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
-                                id="text-right-3">
-                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-3">
-                                <option value="1">Pound Per Square Inch</option>
-                                <option value="6.895" selected>Kilopascal</option>
-                            </select>
-                        </div>
+            <div id="unit-4">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="w-100">
+                        <input type="text" value="1000"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                            id="text-left-4">
+                        <select class="form-select rounded-0 rounded-bottom select-left" id="left-4">
+                            <option value="1" selected>Newton</option>
+                            <option value="101.97">Gram Force</option>
+                        </select>
+                    </div>
+                    <div class="align-self-center p-2">=</div>
+                    <div class="w-100">
+                        <input type="text" value="1"
+                            class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                            id="text-right-4">
+                        <select class="form-select rounded-0 rounded-bottom select-right" id="right-4">
+                            <option value="1">Newton</option>
+                            <option value="101.97" selected>Gram Force</option>
+                        </select>
                     </div>
                 </div>
-
-                <div id="unit-4">
-                    <div class="d-flex justify-content-center mb-3">
-                        <div class="w-100">
-                            <input type="text" value="1000"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
-                                id="text-left-4">
-                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-4">
-                                <option value="1" selected>Newton</option>
-                                <option value="101.97">Gram Force</option>
-                            </select>
-                        </div>
-                        <div class="align-self-center p-2">=</div>
-                        <div class="w-100">
-                            <input type="text" value="1"
-                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
-                                id="text-right-4">
-                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-4">
-                                <option value="1">Newton</option>
-                                <option value="101.97" selected>Gram Force</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>
+
     <footer class="py-3 my-4">
         <p class="text-center text-muted">© 2022 AFSM</p>
     </footer>
