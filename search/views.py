@@ -9,8 +9,8 @@ def index(request):
     context = {'products': products}
     return render(request, 'search/index.html', context)
 
-def detail(request, un_code):
-    product = Product.objects.get(un=un_code)
+def detail(request, pid):
+    product = Product.objects.get(id=pid)
 
     hazcode = product.hazard
     haz_class = ""
@@ -57,3 +57,6 @@ def shipmentHistory(request):
 
 def source(request):
     return render(request, 'search/source.html')
+
+def conversion(request):
+    return render(request, 'search/conversion.html')

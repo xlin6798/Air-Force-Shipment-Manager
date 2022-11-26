@@ -1,5 +1,35 @@
+$("#unit-select").change(function() {
+    hideUnits();
+    $("#unit-"+$(this).val()).show();
+    console.log($("#unit-select").val());
+
+});
+
+$(".select-left, .select-right").change(function() {
+    console.log($("#unit-select").val());
+    $("#text-right-"+$("#unit-select").val()).val($("#text-left-"+$("#unit-select").val()).val() * $("#right-"+$("#unit-select").val()).val() / $("#left-"+$("#unit-select").val()).val());
+});
+
+$(".text-left").on("input", function() {
+    $("#text-right-"+$("#unit-select").val()).val($("#text-left-"+$("#unit-select").val()).val() * $("#right-"+$("#unit-select").val()).val() / $("#left-"+$("#unit-select").val()).val());
+});
+
+$(".text-right").on("input", function() {
+    $("#text-left-"+$("#unit-select").val()).val($("#text-right-"+$("#unit-select").val()).val() * $("#left-"+$("#unit-select").val()).val() / $("#right-"+$("#unit-select").val()).val());
+});
+
+function hideUnits() {
+    $("#unit-0").hide();
+    $("#unit-1").hide();
+    $("#unit-2").hide();
+    $("#unit-3").hide();
+    $("#unit-4").hide();
+}
 
 $(document).ready(function () {
+    hideUnits();
+    $("#unit-0").show();
+
     $("#filterInput")
         .on("keyup", function () {
             var value = $(this).val().toLowerCase();

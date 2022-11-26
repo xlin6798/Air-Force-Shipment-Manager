@@ -25,18 +25,19 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
                     <a class="nav-link" href="{% static 'search/afman24-604.pdf' %}">Source</a>
+                    <a class="nav-link" href="{% url 'conversion' %}">Conversion</a>
                     <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4 table-responsive">
+    <div class="container-fluid mt-4 table-responsive">
         <h1 class="text-center"> Air Force Shipment Manager </h1>
 
         <div class="mb-3 d-flex">
             <div class="me-2">
-                <select class="form-control" name="state" id="maxRows">
+                <select class="form-select" id="maxRows">
                     <option value="5000">Show ALL Rows</option>
                     <option value="5">Show 5 Rows</option>
                     <option value="10">Show 10 Rows</option>
@@ -59,7 +60,7 @@
             </thead>
             <tbody id="pnTable">
                 {% for product in products %}
-                <tr class="clickable filtered" onclick="window.location='/products/{{ product.un }}' ">
+                <tr class="clickable filtered" onclick="window.location='/products/{{ product.id }}' ">
                     <td scope="col"> {{ product.un }} </td>
                     <td scope="col"> {{ product.psn }} </td>
                 </tr>
@@ -86,7 +87,6 @@
             <p class="text-center text-muted">© 2022 AFSM</p>
         </footer>
     </div>
-
     <script src="{% static 'search/script.js' %}"></script>
 </body>
 
