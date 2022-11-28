@@ -1,19 +1,15 @@
 $(document).ready(function () {
-    $(".select-left").on('click', function () {
+    $(".select-left").on("change", function () {
         swapLeft();
     });
 
-    $(".select-right").on('click', function () {
+    $(".select-right").on("change", function () {
         swapRight();
     });
 
-    $("#unit-select").change(function () {
+    $("#unit-select").on("change", function () {
         hideUnits();
         $("#unit-" + $(this).val()).show();
-        convert();
-    });
-
-    $(".select-left, .select-right").change(function () {
         convert();
     });
 
@@ -48,11 +44,7 @@ var left = $("#left-" + $("#unit-select").val()).val();
 var right = $("#right-" + $("#unit-select").val()).val();
 
 function hideUnits() {
-    $("#unit-0").hide();
-    $("#unit-1").hide();
-    $("#unit-2").hide();
-    $("#unit-3").hide();
-    $("#unit-4").hide();
+    $("#unit-0, #unit-1, #unit-2, #unit-3, #unit-4").hide();
 }
 
 function swapLeft() {
