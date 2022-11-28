@@ -24,7 +24,26 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
                     <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
-                    <a class="nav-link" href="{% static 'search/afman24-604.pdf' %}">Source</a>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Source
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}" target="_blank">Attachment 5</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}" target="_blank">Attachment 6</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}" target="_blank">Attachment 7</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}" target="_blank">Attachment 8</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}" target="_blank">Attachment 9</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}" target="_blank">Attachment 10</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}" target="_blank">Attachment 11</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}" target="_blank">Attachment 12</a></li>
+                              <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}" target="_blank">Attachment 13</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
                     <a class="nav-link active" href="{% url 'conversion' %}">Conversion</a>
                     <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                 </div>
