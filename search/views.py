@@ -60,3 +60,6 @@ def source(request):
 
 def conversion(request):
     return render(request, 'search/conversion.html')
+
+def hazmat(request):
+    return render(request, 'search/hazmat.html')
