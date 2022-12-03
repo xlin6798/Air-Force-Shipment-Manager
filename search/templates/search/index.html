@@ -26,24 +26,35 @@
                     <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav">
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Source
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}" target="_blank">Attachment 5</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}" target="_blank">Attachment 6</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}" target="_blank">Attachment 7</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}" target="_blank">Attachment 8</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}" target="_blank">Attachment 9</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}" target="_blank">Attachment 10</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}" target="_blank">Attachment 11</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}" target="_blank">Attachment 12</a></li>
-                              <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}" target="_blank">Attachment 13</a></li>
-                            </ul>
-                          </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Source
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}"
+                                            target="_blank">Attachment 5</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}"
+                                            target="_blank">Attachment 6</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}"
+                                            target="_blank">Attachment 7</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}"
+                                            target="_blank">Attachment 8</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}"
+                                            target="_blank">Attachment 9</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}"
+                                            target="_blank">Attachment 10</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}"
+                                            target="_blank">Attachment 11</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}"
+                                            target="_blank">Attachment 12</a></li>
+                                    <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}"
+                                            target="_blank">Attachment 13</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                      </div>
+                    </div>
                     <a class="nav-link" href="{% url 'conversion' %}">Conversion</a>
                     <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                 </div>
@@ -52,11 +63,9 @@
     </nav>
 
     <div class="fixed">
-        <a href="" class="button" type="button" data-bs-toggle="modal" data-bs-target="#unitModal">
-            <div class="buttonDiv bg-b-blue">
-                Conversion
-            </div>
-        </a>
+        <button class="button bg-b-blue border-0 p-3" type="button" data-bs-toggle="modal" data-bs-target="#unitModal">
+            Conversion
+        </button>
         <!--a href="" class="button">
             <div class="buttonDiv bg-b-orange">
             Button 2
@@ -231,13 +240,12 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-lg btn-primary w-100"
-                        data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-lg btn-primary w-100" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid mt-4 table-responsive">
         <h1 class="text-center"> Air Force Shipment Manager </h1>
 
