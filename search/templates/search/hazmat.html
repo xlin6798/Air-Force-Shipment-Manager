@@ -46,7 +46,6 @@
                       </div>
                     <a class="nav-link" href="{% url 'conversion' %}">Conversion</a>
                     <a class="nav-link active" href="{% url 'shipmentHistory' %}">Shipment History</a>
-                    <a class="nav-link" href="{% url 'hazmat' %}">HazMat</a>
                 </div>
             </div>
         </div>
@@ -240,29 +239,23 @@
     </div>
     
     <div class="container  mt-4 text-center">
-        <h1> SHIPMENT HISTORY </h1>
+        <h1> Hazmat </h1>
 
         <form>
             {% csrf_token %}
             <input type="text" placeholder="Sort by" name="search">
         </form>
 
-        <table class="table table-light table-striped">
-            <tr>
-                <th>DATE</th>
-                <th>TCN NUMBER</th>
-                <th>SHIP FROM</th>
-                <th>SHIP TO</th>
-            </tr>
-            <tr>
-                <th>May 4, 2022</th>
-                <th>M2683183358932XXX</th>
-                <th>LAX</th>
-                <th>LAG</th>
-            </tr>
-            <tr>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+              <h2>Column 1</h2>
+              <p>Some text..</p>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+              <h2>Column 2</h2>
+              <p>Some text..</p>
+            </div>
+        </div>
 
         <footer class="py-3 my-4">
             <p class="text-center text-muted">© 2022 AFSM</p>

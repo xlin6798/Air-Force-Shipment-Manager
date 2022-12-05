@@ -9,5 +9,6 @@ urlpatterns = [
     path('hazard', views.hazard, name='hazard'),
     path('conversion', views.conversion, name='conversion'),
     path('shipmentHistory', views.shipmentHistory, name='shipmentHistory'),
+    path('hazmat', views.hazmat, name='hazmat'),
 ]
 
