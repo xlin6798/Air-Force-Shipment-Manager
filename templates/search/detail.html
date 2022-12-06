@@ -9,6 +9,7 @@
 <head>
     <link rel="stylesheet" href="{% static 'search/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'search/script.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -96,7 +97,7 @@
                         </ul>
                     </div>
                     <a class="nav-link" href="{% url 'conversion' %}">Conversion</a>
-                    <a class="nav-link active" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                     <a class="nav-link" href="{% url 'hazmat' %}">HazMat Label</a>
                 </div>
             </div>
@@ -277,77 +278,164 @@
             </div>
         </div>
     </div>
-    
-    <div class="container  mt-4 text-center">
-        <h1> Hazmat Label</h1>
 
-        <style>
-            table, th, td {
-              border: 5px solid black;
-              border-collapse: collapse;
-            }
-            
-            table.center {
-              margin-left: auto; 
-              margin-right: auto;
-            }
+    <div class="container-fluid mt-4 table-responsive">
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th>UN / ID NUMBER</th>
+                    <th>PROPER SHIPPING NAME / DESCRIPTION </th>
+                    <th>HAZARD CLASS / DIV</th>
+                    <th>SUBSIDIARY RISK</th>
+                    <th>PG</th>
+                    <th>SPECIAL PROVISION</th>
+                    <th>PACKAGING PARAGRAPH</th>
+                    <th>CAUTION</th>
+                    <th>WARNING</th>
+                </tr>
+            </thead>
+            <tbody id="pnTable">
+                <tr>
+                    <td> {{ product.un }} </td>
+                    <td> {{ product.psn }} </td>
+                    <td>
+                        {% if product.hazard %}
+                        <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                            data-bs-target="#haz" aria-expanded="true"
+                            aria-controls="haz">
+                            {{ product.hazard }}
+                        </button>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.sub_as_list %}
+                        {% for sub in product.sub_as_list %}
+                        <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                            data-bs-target="#sub{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="sub{{ forloop.counter }}">
+                            {{ sub }}
+                        </button>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.pg_as_list %}
+                        {% for pg in product.pg_as_list %}
+                        <button class="btn btn-outline-primary">
+                            {{ pg }}
+                        </button>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.sp_as_list %}
+                        {% for sp in product.sp_as_list %}
+                        <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                            data-bs-target="#sp{{ forloop.counter }}" aria-expanded="true"
+                            aria-controls="sp{{ forloop.counter }}">
+                            {{ sp }}
+                        </button>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if product.paragraph %}
+                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#pp" aria-controls="pp">
+                            {{ product.paragraph }}
+                        </button>
+                        {% endif %}
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
-            img {
-                width: 250;
-                height: 250;
-            }
-        </style>
-        
-        <table class="center">
-            <tr>
-                <td><img src="/static/search/Labels/cargo_only.png" alt=""></th>
-                <td><img src="/static/search/Labels/class1.4.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2flammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2inhalationhaz.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class2nonflammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2oxygen.png" alt=""></th>
-                <td><img src="/static/search/Labels/class3.png" alt=""></th>
-                <td><img src="/static/search/Labels/Class4.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class5.2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class5.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6infectious.png"></th>
-                <td><img src="/static/search/Labels/class6inhalationhaz.png"></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class6PG3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6poison.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6toxic.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-1.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class7-2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class8.png" alt=""></th>
-                <td><img src="/static/search/Labels/class9 battery.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class9.png" alt=""></th>
-                <td><img src="/static/search/Labels/lit Battery.png" alt=""></th>
-                <td><img src="/static/search/Labels/orientation mark.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3480.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/UN3481.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3490.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3491.png" alt=""></th>
-            </tr>
-        </Table>
+        <div class="accordion accordion-flush" id="accordionExample">
+            {% if haz_class %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#haz" aria-controls="haz">
+                        Class {{ haz_class.code }}
+                    </button>
+                </h2>
+                <div id="haz" class="bg-light accordion-collapse collapse"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <style>                             
+                            .accordion-body {                                 
+                                background-color: rgb(178, 206, 243);                            
+                            }                        
+                        </style>
+                        <strong>{{ haz_class.desc }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% for sub in sub_list %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sub{{ forloop.counter }}" aria-controls="sub{{ forloop.counter }}">
+                        Subsidiary Risk {{ sub.code }}
+                    </button>
+                </h2>
+                <div id="sub{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>{{ sub.desc }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for sp in sp_list %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sp{{ forloop.counter }}" aria-controls="sp{{ forloop.counter }}">
+                        SP {{ sp.code }}
+                    </button>
+                </h2>
+                <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
+                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>{{ sp.desc }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if pp != "" %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pp"
+                        aria-controls="pp">
+                        Packaging Paragraph {{ pp }}
+                    </button>
+                </h2>
+                <div id="pp" class="bg-light accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {% if pp == "FORBIDDEN" %}
+                        <strong>Cannot be ship on aircraft</strong>
+                        {% else %}
+                        <strong><a href="{% static 'search/attachments/'|add:pp|add:'.pdf' %}" target="_blank">Click here to open
+                                document</a></strong>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
 
         <footer class="py-3 my-4">
             <p class="text-center text-muted">© 2022 AFSM</p>
         </footer>
     </div>
-
-    <script src="{% static 'search/script.js' %}"></script>
 </body>
 
 </html>
