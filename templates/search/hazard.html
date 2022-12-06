@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 shadow-lg mb-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">AFSM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
-                    <a class="nav-link"  href="{% url 'hazard' %}">Hazard</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'hazard' %}">Hazard</a>
                     <div class="btn-group">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -96,7 +96,7 @@
                         </ul>
                     </div>
                     <a class="nav-link" href="{% url 'conversion' %}">Conversion</a>
-                    <a class="nav-link active" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
                     <a class="nav-link" href="{% url 'hazmat' %}">HazMat Label</a>
                 </div>
             </div>
@@ -277,70 +277,59 @@
             </div>
         </div>
     </div>
-    
-    <div class="container  mt-4 text-center">
-        <h1> Hazmat Label</h1>
 
-        <style>
-            table, th, td {
-              border: 5px solid black;
-              border-collapse: collapse;
-            }
-            
-            table.center {
-              margin-left: auto; 
-              margin-right: auto;
-            }
+    <div class="container-fluid mt-4 table-responsive">
+        <h1 class="text-center"> Hazardous Substances </h1>
 
-            img {
-                width: 250;
-                height: 250;
-            }
-        </style>
-        
-        <table class="center">
-            <tr>
-                <td><img src="/static/search/Labels/cargo_only.png" alt=""></th>
-                <td><img src="/static/search/Labels/class1.4.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2flammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2inhalationhaz.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class2nonflammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2oxygen.png" alt=""></th>
-                <td><img src="/static/search/Labels/class3.png" alt=""></th>
-                <td><img src="/static/search/Labels/Class4.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class5.2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class5.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6infectious.png"></th>
-                <td><img src="/static/search/Labels/class6inhalationhaz.png"></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class6PG3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6poison.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6toxic.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-1.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class7-2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class8.png" alt=""></th>
-                <td><img src="/static/search/Labels/class9 battery.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class9.png" alt=""></th>
-                <td><img src="/static/search/Labels/lit Battery.png" alt=""></th>
-                <td><img src="/static/search/Labels/orientation mark.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3480.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/UN3481.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3490.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3491.png" alt=""></th>
-            </tr>
-        </Table>
+        <div class="mb-3 d-flex">
+            <div class="me-2">
+                <select class="form-select" name="state" id="maxRows">
+                    <option value="5000">Show ALL Rows</option>
+                    <option value="5">Show 5 Rows</option>
+                    <option value="10">Show 10 Rows</option>
+                    <option value="20">Show 25 Rows</option>
+                    <option value="50">Show 50 Rows</option>
+                    <option value="100">Show 100 Rows</option>
+                </select>
+            </div>
+            <div class="flex-grow-1">
+                <input class="form-control" type="text" id="filterInput" placeholder="">
+            </div>
+        </div>
+
+        <table id="table-id" class="table table-light table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>PROPER SHIPPING NAME / DESCRIPTION </th>
+                    <th width="150">POUNDS</th>
+                    <th width="150">KILOGRAMS</th>
+                </tr>
+            </thead>
+            <tbody id="pnTable">
+                {% for hazsubstance in hazsubstances %}
+                    <tr class="filtered">
+                        <td scope="col"> {{ hazsubstance.psn }} </td>
+                        <td scope="col"> {{ hazsubstance.weight_lbs }} </td>
+                        <td scope="col"> {{ hazsubstance.weight_kgs }} </td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled" data-page="prev">
+                    <a class="page-link link-dark">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" data-page="next">
+                    <a class="page-link link-dark">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <footer class="py-3 my-4">
             <p class="text-center text-muted">© 2022 AFSM</p>

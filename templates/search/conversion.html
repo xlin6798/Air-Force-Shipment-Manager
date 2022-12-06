@@ -1,0 +1,276 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'search/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 shadow-lg mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">AFSM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
+                    <div class="btn-group">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Source
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"
+                            style="max-height: 100vh; max-width: 100vh; overflow-y: scroll;">
+                            <li><a class="dropdown-item" href="{% static 'search/afman24-604.pdf' %}"
+                                 target="_blank">AFMAN 24-604</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A1.pdf' %}"
+                                 target="_blank">Attachment 1: GLOSSARY OF REFERENCES AND SUPPORTING INFORMATION</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A2.pdf' %}"
+                                 target="_blank">Attachment 2: STEPS FOR PREPARING HAZARDOUS MATERIAL</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A3.pdf' %}"
+                                 target="_blank">Attachment 3: STEPS FOR PREPARING HAZARDOUS MATERIAL</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A4.pdf' %}"
+                                 target="_blank">Attachment 4: ITEMS LISTING</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}"
+                                 target="_blank">Attachment 5: EXPLOSIVES AND AMMUNITION</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}"
+                                 target="_blank">Attachment 6: COMPRESSED GASES</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}"
+                                 target="_blank">Attachment 7: FLAMMABLE LIQUIDS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}"
+                                 target="_blank">Attachment 8: FLAMMABLE SOLIDS, SPONTANEOUSLY COMBUSTIBLE MATERIALS, AND DANGEROUS WHEN WET MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}"
+                                 target="_blank">Attachment 9: OXIDIZING MATERIALS AND ORGANIC PEROXIDES</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}"
+                                 target="_blank">Attachment 10: TOXIC (POISONOUS) MATERIALS AND INFECTIOUS SUBSTANCES</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}"
+                                 target="_blank">Attachment 11: RADIOACTIVE MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}"
+                                 target="_blank">Attachment 12: CORROSIVE MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}"
+                                 target="_blank">Attachment 13: MISCELLANEOUS HAZARDOUS MATERIAL</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A14.pdf' %}"
+                                 target="_blank">Attachment 14: EXPLOSIVES AND AMMUNITION</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A15.pdf' %}"
+                                 target="_blank">Attachment 15: LABELING HAZARDOUS MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A16.pdf' %}"
+                                 target="_blank">Attachment 16: AREA PLACARDING</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A17.pdf' %}"
+                                 target="_blank">Attachment 17: CERTIFYING HAZARDOUS MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A18.pdf' %}"
+                                 target="_blank">Attachment 18: COMPATIBILITY</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A19.pdf' %}"
+                                 target="_blank">Attachment 19: EXCEPTED AND LIMITED QUANTITIES</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A20.pdf' %}"
+                                 target="_blank">Attachment 20: ABSORBENT, CUSHIONING, AND CLOSURE REQUIREMENTS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A21.pdf' %}"
+                                 target="_blank">Attachment 21: BRIEFING AGENCY REQUIREMENTS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A22.pdf' %}"
+                                 target="_blank">Attachment 22: PASSENGER MOVEMENT ON AIRCRAFT TRANSPORTING HAZARDOUS
+                                MATERIALS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A23.pdf' %}"
+                                 target="_blank">Attachment 23: USE OF CONTRACT AIR CARRIERS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A24.pdf' %}"
+                                 target="_blank">Attachment 24: SPECIAL CARGO REQUIREMENTS</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A25.pdf' %}"
+                                 target="_blank">Attachment 25: HAZARDOUS MATERIALS INITIAL AND REFRESHER TRAINING</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A26.pdf' %}"
+                                 target="_blank">Attachment 26: TABLE OF EQUIVALENTS AND NET QUANTITY OF GAS CONVERSION
+                                FORMULA</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A27.pdf' %}"
+                                 target="_blank">Attachment 27: PREPARING EXPLOSIVES PACKAGED PRIOR TO 1 JANUARY 1990</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A28.pdf' %}"
+                                 target="_blank">Attachment 28: INSPECTION PROCEDURES</a></li>
+                            <li><a class="dropdown-item" href="{% static 'search/attachments/A29.pdf' %}"
+                                 target="_blank">Attachment 29: SUBJECT INDEX</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link active" href="{% url 'conversion' %}">Conversion</a>
+                    <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
+                    <a class="nav-link" href="{% url 'hazmat' %}">HazMat Label</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-9 col-sm-11 col-12">
+                <div class="d-flex justify-content-center mb-1">
+                    <div class="w-100">
+                        <select id="unit-select" class="form-select">
+                            <option value="0">Volume</option>
+                            <option value="1">Weight</option>
+                            <option value="2">Length</option>
+                            <option value="3">Radioactive</option>
+                            <option value="4">Volume</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="unit-0">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="w-100">
+                            <input type="text" value="1000"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                                id="text-left-0">
+                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-0">
+                                <option value="1000" selected>Millilter</option>
+                                <option value="1">Liter</option>
+                                <option value=".264">Gallon</option>
+                                <option value="1.057">Quartz</option>
+                                <option value="61.025">Cubic Inch</option>
+                                <option value=".03531">Cubic Foot</option>
+                                <option value=".001">Cubic Meter</option>
+                                <option value=".0000338">Oz</option>
+                                <option value="33.915">Fluid Ounce</option>
+                            </select>
+                        </div>
+                        <div class="align-self-center p-2">=</div>
+                        <div class="w-100">
+                            <input type="text" value="1"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                                id="text-right-0">
+                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-0">
+                                <option value="1000">Millilter</option>
+                                <option value="1" selected>Liter</option>
+                                <option value=".264">Gallon</option>
+                                <option value="1.057">Quartz</option>
+                                <option value="61.025">Cubic Inch</option>
+                                <option value=".03531">Cubic Foot</option>
+                                <option value=".001">Cubic Meter</option>
+                                <option value=".0000338">Oz</option>
+                                <option value="33.915">Fluid Ounce</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="unit-1">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="w-100">
+                            <input type="text" value="1000"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                                id="text-left-1">
+                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-1">
+                                <option value="1000" selected>Gram</option>
+                                <option value="1">Kilogram</option>
+                                <option value="2.205">Pound</option>
+                                <option value="35.274">Ounce</option>
+                            </select>
+                        </div>
+                        <div class="align-self-center p-2">=</div>
+                        <div class="w-100">
+                            <input type="text" value="1"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                                id="text-right-1">
+                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-1">
+                                <option value="1000">Gram</option>
+                                <option value="1" selected>Kilogram</option>
+                                <option value="2.205">Pound</option>
+                                <option value="35.274">Ounce</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="unit-2">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="w-100">
+                            <input type="text" value="1000"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                                id="text-left-2">
+                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-2">
+                                <option value="1000" selected>Millimeter</option>
+                                <option value="100">Centimeter</option>
+                                <option value="1">Meter</option>
+                                <option value="39.37">Inch</option>
+                                <option value="3.28">Foot</option>
+                            </select>
+                        </div>
+                        <div class="align-self-center p-2">=</div>
+                        <div class="w-100">
+                            <input type="text" value="1"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                                id="text-right-2">
+                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-2">
+                                <option value="1000">Millimeter</option>
+                                <option value="100" selected>Centimeter</option>
+                                <option value="1">Meter</option>
+                                <option value="39.37">Inch</option>
+                                <option value="3.28">Foot</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="unit-3">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="w-100">
+                            <input type="text" value="1000"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                                id="text-left-3">
+                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-3">
+                                <option value="1" selected>Pound Per Square Inch (PSI)</option>
+                                <option value="6.895">Kilopascal</option>
+                            </select>
+                        </div>
+                        <div class="align-self-center p-2">=</div>
+                        <div class="w-100">
+                            <input type="text" value="1"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                                id="text-right-3">
+                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-3">
+                                <option value="1">Pound Per Square Inch (PSI)</option>
+                                <option value="6.895" selected>Kilopascal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="unit-4">
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="w-100">
+                            <input type="text" value="1000"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-left" placeholder=""
+                                id="text-left-4">
+                            <select class="form-select rounded-0 rounded-bottom select-left" id="left-4">
+                                <option value="1" selected>Newton</option>
+                                <option value="101.97">Gram Force</option>
+                            </select>
+                        </div>
+                        <div class="align-self-center p-2">=</div>
+                        <div class="w-100">
+                            <input type="text" value="1"
+                                class="form-control rounded-0 rounded-top border-bottom-0 text-right" placeholder=""
+                                id="text-right-4">
+                            <select class="form-select rounded-0 rounded-bottom select-right" id="right-4">
+                                <option value="1">Newton</option>
+                                <option value="101.97" selected>Gram Force</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-3 my-4">
+        <p class="text-center text-muted">© 2022 AFSM</p>
+    </footer>
+
+    <script src="{% static 'search/script.js' %}"></script>
+</body>
+
+
+</html>

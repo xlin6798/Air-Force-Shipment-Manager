@@ -277,70 +277,31 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container  mt-4 text-center">
-        <h1> Hazmat Label</h1>
+        <h1> SHIPMENT HISTORY </h1>
 
-        <style>
-            table, th, td {
-              border: 5px solid black;
-              border-collapse: collapse;
-            }
-            
-            table.center {
-              margin-left: auto; 
-              margin-right: auto;
-            }
+        <form>
+            {% csrf_token %}
+            <input type="text" placeholder="Sort by" name="search">
+        </form>
 
-            img {
-                width: 250;
-                height: 250;
-            }
-        </style>
-        
-        <table class="center">
+        <table class="table table-light table-striped">
             <tr>
-                <td><img src="/static/search/Labels/cargo_only.png" alt=""></th>
-                <td><img src="/static/search/Labels/class1.4.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2flammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2inhalationhaz.png" alt=""></th>
+                <th>DATE</th>
+                <th>TCN NUMBER</th>
+                <th>SHIP FROM</th>
+                <th>SHIP TO</th>
             </tr>
             <tr>
-                <td><img src="/static/search/Labels/class2nonflammable.png" alt=""></th>
-                <td><img src="/static/search/Labels/class2oxygen.png" alt=""></th>
-                <td><img src="/static/search/Labels/class3.png" alt=""></th>
-                <td><img src="/static/search/Labels/Class4.png" alt=""></th>
+                <th>May 4, 2022</th>
+                <th>M2683183358932XXX</th>
+                <th>LAX</th>
+                <th>LAG</th>
             </tr>
             <tr>
-                <td><img src="/static/search/Labels/class5.2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class5.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6infectious.png"></th>
-                <td><img src="/static/search/Labels/class6inhalationhaz.png"></th>
             </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class6PG3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6poison.png" alt=""></th>
-                <td><img src="/static/search/Labels/class6toxic.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-1.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class7-2.png" alt=""></th>
-                <td><img src="/static/search/Labels/class7-3.png" alt=""></th>
-                <td><img src="/static/search/Labels/class8.png" alt=""></th>
-                <td><img src="/static/search/Labels/class9 battery.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/class9.png" alt=""></th>
-                <td><img src="/static/search/Labels/lit Battery.png" alt=""></th>
-                <td><img src="/static/search/Labels/orientation mark.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3480.png" alt=""></th>
-            </tr>
-            <tr>
-                <td><img src="/static/search/Labels/UN3481.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3490.png" alt=""></th>
-                <td><img src="/static/search/Labels/UN3491.png" alt=""></th>
-            </tr>
-        </Table>
+        </table>
 
         <footer class="py-3 my-4">
             <p class="text-center text-muted">© 2022 AFSM</p>
