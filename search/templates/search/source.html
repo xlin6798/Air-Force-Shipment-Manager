@@ -24,36 +24,77 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
           <a class="nav-link" href="{% url 'hazard' %}">Hazard</a>
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Source
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}"
-                      target="_blank">Attachment 5</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}"
-                      target="_blank">Attachment 6</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}"
-                      target="_blank">Attachment 7</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}"
-                      target="_blank">Attachment 8</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}"
-                      target="_blank">Attachment 9</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}"
-                      target="_blank">Attachment 10</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}"
-                      target="_blank">Attachment 11</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}"
-                      target="_blank">Attachment 12</a></li>
-                  <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}"
-                      target="_blank">Attachment 13</a></li>
-                </ul>
-              </li>
+          <div class="btn-group">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Source
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink"
+                style="max-height: 100vh; max-width: 100vh; overflow-y: scroll;">
+                <li><a class="dropdown-item" href="{% static 'search/afman24-604.pdf' %}"
+                     target="_blank">AFMAN 24-604</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A1.pdf' %}"
+                     target="_blank">Attachment 1: GLOSSARY OF REFERENCES AND SUPPORTING INFORMATION</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A2.pdf' %}"
+                     target="_blank">Attachment 2: STEPS FOR PREPARING HAZARDOUS MATERIAL</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A3.pdf' %}"
+                     target="_blank">Attachment 3: STEPS FOR PREPARING HAZARDOUS MATERIAL</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A4.pdf' %}"
+                     target="_blank">Attachment 4: ITEMS LISTING</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A5.pdf' %}"
+                     target="_blank">Attachment 5: EXPLOSIVES AND AMMUNITION</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A6.pdf' %}"
+                     target="_blank">Attachment 6: COMPRESSED GASES</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A7.pdf' %}"
+                     target="_blank">Attachment 7: FLAMMABLE LIQUIDS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A8.pdf' %}"
+                     target="_blank">Attachment 8: FLAMMABLE SOLIDS, SPONTANEOUSLY COMBUSTIBLE MATERIALS, AND DANGEROUS WHEN WET MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A9.pdf' %}"
+                     target="_blank">Attachment 9: OXIDIZING MATERIALS AND ORGANIC PEROXIDES</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A10.pdf' %}"
+                     target="_blank">Attachment 10: TOXIC (POISONOUS) MATERIALS AND INFECTIOUS SUBSTANCES</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A11.pdf' %}"
+                     target="_blank">Attachment 11: RADIOACTIVE MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A12.pdf' %}"
+                     target="_blank">Attachment 12: CORROSIVE MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A13.pdf' %}"
+                     target="_blank">Attachment 13: MISCELLANEOUS HAZARDOUS MATERIAL</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A14.pdf' %}"
+                     target="_blank">Attachment 14: EXPLOSIVES AND AMMUNITION</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A15.pdf' %}"
+                     target="_blank">Attachment 15: LABELING HAZARDOUS MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A16.pdf' %}"
+                     target="_blank">Attachment 16: AREA PLACARDING</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A17.pdf' %}"
+                     target="_blank">Attachment 17: CERTIFYING HAZARDOUS MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A18.pdf' %}"
+                     target="_blank">Attachment 18: COMPATIBILITY</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A19.pdf' %}"
+                     target="_blank">Attachment 19: EXCEPTED AND LIMITED QUANTITIES</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A20.pdf' %}"
+                     target="_blank">Attachment 20: ABSORBENT, CUSHIONING, AND CLOSURE REQUIREMENTS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A21.pdf' %}"
+                     target="_blank">Attachment 21: BRIEFING AGENCY REQUIREMENTS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A22.pdf' %}"
+                     target="_blank">Attachment 22: PASSENGER MOVEMENT ON AIRCRAFT TRANSPORTING HAZARDOUS
+                    MATERIALS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A23.pdf' %}"
+                     target="_blank">Attachment 23: USE OF CONTRACT AIR CARRIERS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A24.pdf' %}"
+                     target="_blank">Attachment 24: SPECIAL CARGO REQUIREMENTS</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A25.pdf' %}"
+                     target="_blank">Attachment 25: HAZARDOUS MATERIALS INITIAL AND REFRESHER TRAINING</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A26.pdf' %}"
+                     target="_blank">Attachment 26: TABLE OF EQUIVALENTS AND NET QUANTITY OF GAS CONVERSION
+                    FORMULA</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A27.pdf' %}"
+                     target="_blank">Attachment 27: PREPARING EXPLOSIVES PACKAGED PRIOR TO 1 JANUARY 1990</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A28.pdf' %}"
+                     target="_blank">Attachment 28: INSPECTION PROCEDURES</a></li>
+                <li><a class="dropdown-item" href="{% static 'search/attachments/A29.pdf' %}"
+                     target="_blank">Attachment 29: SUBJECT INDEX</a></li>
             </ul>
-          </div>
+        </div>
           <a class="nav-link" href="{% url 'shipmentHistory' %}">Shipment History</a>
         </div>
       </div>
