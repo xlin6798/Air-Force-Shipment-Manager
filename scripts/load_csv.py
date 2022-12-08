@@ -48,7 +48,7 @@ with open('scripts/HazClass.csv') as file:
         hazclass.desc =row[1]
         hazclass.save()
 
-with open('scripts/HazSubstance.csv') as file:
+with open('scripts/HazSubstanceUpdate.csv') as file:
     reader = csv.reader(file)
     next(reader)  # Advance past the header
 
