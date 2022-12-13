@@ -421,8 +421,8 @@
                         {% if pp == "FORBIDDEN" %}
                         <strong>Cannot be ship on aircraft</strong>
                         {% else %}
-                        <strong><a href="{% static 'search/attachments/'|add:pp|add:'.pdf' %}" target="_blank">Click here to open
-                                document</a></strong>
+                        <object data="{% static 'search/attachments/'|add:pp|add:'.pdf' %}" width="100%" height="100%">
+                        </object>
                         {% endif %}
                     </div>
                 </div>
