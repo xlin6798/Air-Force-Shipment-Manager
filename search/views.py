@@ -36,13 +36,6 @@ def detail(request, pid):
 
     ppcode = product.paragraph
     pp = ppcode
-    if ppcode != "" and ppcode != "FORBIDDEN":
-        pp = ""
-        for c in ppcode:
-            if c != '.':
-                pp += c
-            else:
-                break
 
     context = {'product':product, 'haz_class':haz_class, 'sub_list':sub_list, 'sp_list':sp_list, 'pp':pp}
     return render(request, 'search/detail.html', context)
