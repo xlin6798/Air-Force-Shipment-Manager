@@ -478,7 +478,7 @@
                     </button>
                 </h2>
                 <div id="haz" class="bg-light accordion-collapse collapse"
-                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    aria-labelledby="headingOne">
                     <div class="accordion-body">
                         <style>                             
                             .accordion-body {                                 
@@ -500,7 +500,7 @@
                     </button>
                 </h2>
                 <div id="sub{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
-                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    aria-labelledby="headingOne">
                     <div class="accordion-body">
                         <strong>{{ sub.desc }}</strong>
                     </div>
@@ -517,7 +517,7 @@
                     </button>
                 </h2>
                 <div id="sp{{ forloop.counter }}" class="bg-light accordion-collapse collapse"
-                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    aria-labelledby="headingOne">
                     <div class="accordion-body">
                         <strong>{{ sp.desc }}</strong>
                     </div>
@@ -533,8 +533,7 @@
                         Packaging Paragraph {{ pp }}
                     </button>
                 </h2>
-                <div id="pp" class="bg-light accordion-collapse collapse" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
+                <div id="pp" class="bg-light accordion-collapse collapse" aria-labelledby="headingOne">
                     <div class="accordion-body">
                         {% if pp == "FORBIDDEN" %}
                         <strong>Cannot be ship on aircraft</strong>
