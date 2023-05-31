@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $(".select-left").on("change", function () {
         swapLeft();
+        
     });
 
     $(".select-right").on("change", function () {
